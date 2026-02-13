@@ -59,8 +59,10 @@ header{
   overflow:hidden;
   box-shadow: var(--shadow);
   background:
-    linear-gradient( to top, rgba(0,0,0,.75), rgba(0,0,0,.15) ),
-    radial-gradient( circle at top right, rgba(202,165,76,.18), transparent 60% );
+    linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.3)),
+    url('hero.jpg');
+  background-size:cover;
+  background-position:center;
 }
 .heroInner{
   padding:34px 20px;
