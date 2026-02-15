@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Get a Quote | VIP Coach Transfers</title>
+
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
@@ -28,7 +29,7 @@
       <a data-page="contact" href="contact.html" data-nav="contact">Contact</a>
     </nav>
 
-    <div class="lang">
+    <div class="lang" aria-label="Language switch">
       <button type="button" data-lang="en">EN</button>
       <button type="button" data-lang="cz">CZ</button>
       <button type="button" data-lang="ar">AR</button>
@@ -41,10 +42,10 @@
 
   <div class="card">
     <form class="form" method="POST" action="https://formsubmit.co/info@vipct.org">
-      <input type="hidden" name="_subject" value="VIPCT Quote Request" />
-      <input type="hidden" name="_captcha" value="true" />
+      <input type="hidden" name="_subject" value="VIPCT Quote Request">
+      <input type="hidden" name="_captcha" value="true">
 
-      <!-- Trip type FIRST (so JS can show/hide return fields correctly) -->
+      <!-- Trip type -->
       <div class="field">
         <label>Trip Type</label>
         <select name="trip_type" id="trip_type" required>
@@ -53,6 +54,7 @@
         </select>
       </div>
 
+      <!-- Pickup date/time -->
       <div class="field">
         <label>Pickup Date</label>
         <input name="pickup_date" id="pickup_date" type="date" required>
@@ -98,10 +100,10 @@
 
       <div class="field">
         <label>Vehicle preference</label>
-        <select name="vehicle">
-          <option>Luxury Sedan</option>
-          <option>Mercedes V-Class</option>
-          <option>Minibus / Coach</option>
+        <select name="vehicle" required>
+          <option value="Luxury Sedan">Luxury Sedan</option>
+          <option value="Mercedes V-Class">Mercedes V-Class</option>
+          <option value="Minibus / Coach">Minibus / Coach</option>
         </select>
       </div>
 
@@ -112,12 +114,12 @@
 
       <div class="field">
         <label>Phone</label>
-        <input 
+        <input
           name="phone"
           type="tel"
           id="phone"
           placeholder="+420 775 091 730"
-          pattern="^\+?[0-9\s]{8,15}$"
+          pattern="^\\+?[0-9\\s]{8,15}$"
           inputmode="tel"
           required
           title="Enter a valid phone number (8–15 digits, optional +)">
@@ -135,7 +137,7 @@
 
       <div class="heroActions">
         <button class="btn primary" type="submit">Send Request</button>
-        <a class="btn" data-wa href="#">WhatsApp</a>
+        <button type="button" class="btn" id="whatsappBtn" disabled>WhatsApp</button>
       </div>
 
       <p class="note">
@@ -155,11 +157,61 @@
   </div>
 </footer>
 
+<!-- WhatsApp Confirm Modal -->
+<div id="waModalOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(6px); z-index:9999;">
+  <div id="waModal" style="max-width:520px; margin:8vh auto; background:#121212; border:1px solid rgba(255,255,255,.12); border-radius:18px; box-shadow:0 20px 60px rgba(0,0,0,.55); overflow:hidden;">
+    <div style="display:flex; align-items:center; gap:12px; padding:16px 16px; border-bottom:1px solid rgba(255,255,255,.10);">
+      <div style="width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,.06); display:grid; place-items:center; border:1px solid rgba(255,255,255,.10); overflow:hidden;">
+        <img src="assets/logo-gold.png" alt="VIP Coach Transfers" style="max-height:28px; width:auto;">
+      </div>
+      <div style="line-height:1.2">
+        <div style="font-weight:800;" data-i18n="waModalTitle">VIP Coach Transfers</div>
+        <div style="color:#cfcfcf; font-size:13px;" data-i18n="waModalSubtitle">Confirm WhatsApp booking</div>
+      </div>
+      <button id="waClose" type="button" style="margin-left:auto; background:transparent; border:0; color:#cfcfcf; font-size:18px; cursor:pointer;">✕</button>
+    </div>
+
+    <div style="padding:16px;">
+      <div style="color:#cfcfcf; font-size:13px; margin-bottom:10px;" data-i18n="waPreviewLabel">Message preview:</div>
+      <pre id="waPreview" style="margin:0; white-space:pre-wrap; background:#0f0f0f; border:1px solid rgba(255,255,255,.10); border-radius:14px; padding:12px; color:#fff; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size:12px; line-height:1.35;"></pre>
+
+      <div id="waLoading" style="display:none; margin-top:14px; color:#cfcfcf; font-size:13px; align-items:center; gap:10px;">
+        <span style="display:inline-block; width:18px; height:18px; border:2px solid rgba(255,255,255,.25); border-top-color:#caa54c; border-radius:50%; animation:spin .8s linear infinite;"></span>
+        <span data-i18n="waOpening">Opening WhatsApp…</span>
+      </div>
+
+      <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+        <button id="waCancel" type="button" class="btn" style="flex:1;" data-i18n="waCancel">Cancel</button>
+        <button id="waSend" type="button" class="btn primary" style="flex:1;" data-i18n="waSend">Send via WhatsApp</button>
+      </div>
+
+      <div style="margin-top:10px; color:#cfcfcf; font-size:12px;" data-i18n="waRedirectNote">
+        You will be redirected to the confirmation page after WhatsApp opens.
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
+  const whatsappBtn = document.getElementById("whatsappBtn");
+
+  // Modal elements
+  const overlay = document.getElementById("waModalOverlay");
+  const waPreview = document.getElementById("waPreview");
+  const waClose = document.getElementById("waClose");
+  const waCancel = document.getElementById("waCancel");
+  const waSend = document.getElementById("waSend");
+  const waLoading = document.getElementById("waLoading");
+
+  // Helpers
   function pad2(n){ return String(n).padStart(2,'0'); }
 
   // Create time options every 5 minutes (00:00 to 23:55)
@@ -176,7 +228,7 @@
     }
   }
 
-  // Set min date = today (no past dates)
+  // Set min date = today
   function setMinToday(inputEl){
     const now = new Date();
     const yyyy = now.getFullYear();
@@ -212,6 +264,187 @@
     }
   }
 
+  // Phone: allow only digits, spaces, +
+  document.getElementById("phone").addEventListener("input", function() {
+    this.value = this.value.replace(/[^0-9+\s]/g, "");
+  });
+
+  // Enable/disable WhatsApp button based on required fields
+  function checkRequiredFields() {
+    const pickup = document.querySelector('input[name="pickup"]').value.trim();
+    const dropoff = document.querySelector('input[name="dropoff"]').value.trim();
+    const passengers = document.querySelector('input[name="passengers"]').value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    const pickupDate = document.getElementById("pickup_date").value;
+    const pickupTime = document.getElementById("pickup_time").value;
+    const tripType = document.getElementById("trip_type").value;
+
+    let valid = Boolean(pickup && dropoff && passengers && phone && pickupDate && pickupTime && tripType);
+
+    if (tripType === "roundtrip") {
+      const rDate = document.getElementById("return_date").value;
+      const rTime = document.getElementById("return_time").value;
+      if (!rDate || !rTime) valid = false;
+    }
+
+    whatsappBtn.disabled = !valid;
+  }
+
+  document.querySelectorAll("input, select, textarea").forEach(el => {
+    el.addEventListener("input", checkRequiredFields);
+    el.addEventListener("change", checkRequiredFields);
+  });
+
+  function openModal(){
+    overlay.style.display = "block";
+    waLoading.style.display = "none";
+    waSend.disabled = false;
+  }
+  function closeModal(){
+    overlay.style.display = "none";
+  }
+
+  waClose.addEventListener("click", closeModal);
+  waCancel.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e)=>{ if(e.target === overlay) closeModal(); });
+
+  // Country detection (best effort)
+  async function detectCountry(){
+    try{
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      const lang = navigator.language || "";
+      const res = await fetch("https://ipapi.co/json/");
+      if(!res.ok) throw new Error("geo failed");
+      const json = await res.json();
+      return {
+        country: json.country_name || "",
+        countryCode: json.country || "",
+        city: json.city || "",
+        tz,
+        lang
+      };
+    }catch(e){
+      return {
+        country: "",
+        countryCode: "",
+        city: "",
+        tz: (Intl.DateTimeFormat().resolvedOptions().timeZone || ""),
+        lang: (navigator.language || "")
+      };
+    }
+  }
+
+  function buildMessage(lang, geo){
+    const date = document.getElementById("pickup_date").value;
+    const time = document.getElementById("pickup_time").value;
+    const pickup = document.querySelector('input[name="pickup"]').value;
+    const dropoff = document.querySelector('input[name="dropoff"]').value;
+    const passengers = document.querySelector('input[name="passengers"]').value;
+    const luggage = document.querySelector('input[name="luggage"]').value || "-";
+    const vehicle = document.querySelector('select[name="vehicle"]').value;
+    const phone = document.getElementById("phone").value;
+    const tripType = document.getElementById("trip_type").value;
+
+    const countryLine = geo.country
+      ? `${geo.city ? geo.city + ", " : ""}${geo.country}${geo.countryCode ? " (" + geo.countryCode + ")" : ""}`
+      : (geo.tz || geo.lang ? `${geo.tz}${geo.lang ? " • " + geo.lang : ""}` : "");
+
+    if(lang === "ar"){
+      let msg =
+`طلب حجز - VIP Coach Transfers
+
+🚗 نوع الرحلة: ${tripType === "roundtrip" ? "ذهاب وعودة" : "ذهاب فقط"}
+
+📅 تاريخ الانطلاق: ${date}
+⏰ وقت الانطلاق: ${time}
+
+📍 موقع الانطلاق: ${pickup}
+📍 الوجهة: ${dropoff}
+
+👥 عدد الركاب: ${passengers}
+🧳 الأمتعة: ${luggage}
+🚘 نوع السيارة: ${vehicle}
+
+📞 رقم العميل: ${phone}`;
+
+      if (countryLine) msg += `
+
+🌍 موقع العميل: ${countryLine}`;
+
+      if(tripType === "roundtrip"){
+        const rDate = document.getElementById("return_date").value;
+        const rTime = document.getElementById("return_time").value;
+        msg += `
+
+📅 تاريخ العودة: ${rDate}
+⏰ وقت العودة: ${rTime}`;
+      }
+      return msg;
+    }
+
+    let msg =
+`VIP Coach Transfers Booking Request
+
+🚗 Trip Type: ${tripType === "roundtrip" ? "Round Trip" : "One Way"}
+
+📅 Pickup Date: ${date}
+⏰ Pickup Time: ${time}
+
+📍 Pickup: ${pickup}
+📍 Drop-off: ${dropoff}
+
+👥 Passengers: ${passengers}
+🧳 Luggage: ${luggage}
+🚘 Vehicle: ${vehicle}
+
+📞 Client Phone: ${phone}`;
+
+    if (countryLine) msg += `
+
+🌍 Client Location: ${countryLine}`;
+
+    if(tripType === "roundtrip"){
+      const rDate = document.getElementById("return_date").value;
+      const rTime = document.getElementById("return_time").value;
+      msg += `
+
+📅 Return Date: ${rDate}
+⏰ Return Time: ${rTime}`;
+    }
+
+    return msg;
+  }
+
+  let cachedGeo = null;
+  let lastMessage = "";
+
+  whatsappBtn.addEventListener("click", async () => {
+    // If Arabic selected -> ar message, otherwise English
+    const lang = (document.documentElement.lang || "en").startsWith("ar") ? "ar" : "en";
+
+    if(!cachedGeo) cachedGeo = await detectCountry();
+
+    lastMessage = buildMessage(lang, cachedGeo);
+    waPreview.textContent = lastMessage;
+
+    openModal();
+  });
+
+  waSend.addEventListener("click", () => {
+    waSend.disabled = true;
+    waLoading.style.display = "flex";
+
+    const encoded = encodeURIComponent(lastMessage);
+    window.open(`https://wa.me/420775091730?text=${encoded}`, "_blank");
+
+    // redirect after WhatsApp opens
+    setTimeout(() => {
+      window.location.href = "thankyou.html";
+    }, 900);
+  });
+
+  // Init
   document.addEventListener("DOMContentLoaded", () => {
     const tripType = document.getElementById("trip_type");
     const pickupDate = document.getElementById("pickup_date");
@@ -225,15 +458,27 @@
     setMinToday(pickupDate);
     setMinToday(returnDate);
 
-    // Flatpickr calendars (small popup calendar)
+    // Flatpickr calendars
     flatpickr("#pickup_date", { minDate: "today", dateFormat: "Y-m-d" });
     flatpickr("#return_date", { minDate: "today", dateFormat: "Y-m-d" });
 
-    tripType.addEventListener("change", updateReturnFields);
-    pickupDate.addEventListener("change", syncReturnMin);
+    tripType.addEventListener("change", () => {
+      updateReturnFields();
+      checkRequiredFields();
+    });
+
+    pickupDate.addEventListener("change", () => {
+      syncReturnMin();
+      checkRequiredFields();
+    });
+
+    // If user changes return fields, re-check
+    returnDate.addEventListener("change", checkRequiredFields);
+    returnTime.addEventListener("change", checkRequiredFields);
 
     updateReturnFields();
     syncReturnMin();
+    checkRequiredFields();
   });
 </script>
 
