@@ -1,35 +1,59 @@
+// ============================================
+// VIP Coach Transfers - assets/data.js
+// ============================================
+
 window.I18N = {
+
+  // =====================================================
+  // ENGLISH
+  // =====================================================
   en: {
+
     brand: "VIP Coach Transfers",
-    nav: { home:"Home", services:"Services", fleet:"Fleet", programs:"Programs", quote:"Get a Quote", contact:"Contact" },
-    heroTitle: "Luxury Transfers & Chauffeur Service in Prague",
-    heroText: "Airport transfers, city-to-city rides, VIP vans, sedans and coaches. Fast quotes, 24/7 service, English & Arabic support.",
+
+    nav: {
+      home: "Home",
+      services: "Services",
+      fleet: "Fleet",
+      programs: "Programs",
+      quote: "Get a Quote",
+      contact: "Contact"
+    },
+
+    footerNote: "VIP Coach Transfers s.r.o. • Prague • 24/7 Luxury Transfers",
+
+    // ================= HOME =================
     ctaQuote: "Get a Quote",
-    ctaWa: "Book on WhatsApp",
-    badges: ["Licensed company", "24/7 service", "Professional drivers", "Fixed price quote"],
-    servicesTitle: "Services",
-    s1: {t:"Airport Transfers", d:"Arrivals & departures with meet & greet and flight tracking."},
-    s2: {t:"City-to-City", d:"Prague ↔ Vienna, Munich, Berlin, Budapest and more."},
-    s3: {t:"VIP Service", d:"Premium comfort for business, diplomats and events."},
-    s4: {t:"Driver on Disposal", d:"Hourly booking — your driver stays with you."},
-    fleetTitle: "Fleet Preview",
-    f1:{t:"Luxury Sedan", d:"Comfort for 1–3 passengers."},
-    f2:{t:"Mercedes V-Class", d:"VIP van for 4–7 passengers."},
-    f3:{t:"Coaches", d:"Group transport — 16 to 55 seats."},
-    programsTitle:"Popular Programs",
-    programsNote:"Create SEO landing pages for each destination (Prague → Český Krumlov, Karlovy Vary, Dresden…).",
-    contactTitle:"Contact",
-    phoneLabel:"Phone / WhatsApp",
-    emailLabel:"Email",
-    addrLabel:"Address",
-    addr:"Moulikova 2240/5, 150 00 Praha, Czechia",
-    phone:"+420 775 091 730",
-    email:"info@vipct.org",
-    company:"VIP Coach Transfers s.r.o.",
-    companyIdLabel: "Company ID",
-    companyIdValue: "23693592",
-    vatLabel: "VAT ID",
-    vatValue: "CZ23693592",
+
+    // ================= QUOTE PAGE =================
+    qTripType: "Trip Type",
+    qOneWay: "One-way",
+    qRoundTrip: "Round trip",
+    qPickupDate: "Pickup Date",
+    qPickupTime: "Pickup Time",
+    qReturnDate: "Return Date",
+    qReturnTime: "Return Time",
+    qPickupLocation: "Pickup location",
+    qDropoffLocation: "Drop-off location",
+    qPassengers: "Passengers",
+    qLuggage: "Luggage",
+    qVehicle: "Vehicle preference",
+    qVehicleSedan: "Luxury Sedan",
+    qVehicleVClass: "Mercedes V-Class",
+    qVehicleCoach: "Minibus / Coach",
+    qName: "Name",
+    qPhone: "Phone",
+    qEmail: "Email",
+    qNotes: "Notes",
+    qSend: "Send Request",
+    qFormSubmitNote: "After first submit, FormSubmit will email you a confirmation link to activate. Open that email and click confirm.",
+
+    qPlaceholderPickup: "Airport / hotel / address",
+    qPlaceholderDropoff: "City / address",
+    qPlaceholderLuggage: "e.g. 4 suitcases + 2 backpacks",
+    qPlaceholderNotes: "Flight number, stops, child seats...",
+
+    // ================= WHATSAPP MODAL =================
     waModalTitle: "VIP Coach Transfers",
     waModalSubtitle: "Confirm WhatsApp booking",
     waPreviewLabel: "Message preview:",
@@ -37,6 +61,8 @@ window.I18N = {
     waSend: "Send via WhatsApp",
     waRedirectNote: "You will be redirected to the confirmation page after WhatsApp opens.",
     waOpening: "Opening WhatsApp…",
+
+    // ================= THANK YOU PAGE =================
     tyTitle: "Thank You | VIP Coach Transfers",
     tyHeadline: "Thank you!",
     tySubtext: "Your request is ready. If WhatsApp didn’t open, use the button below.",
@@ -55,58 +81,60 @@ window.I18N = {
     tyHomeBtn: "Back to Home",
     tyNewQuoteBtn: "New Quote",
     tyWaBtn: "Open WhatsApp",
-    qTripType: "Trip Type",
-    qPickupDate: "Pickup Date",
-    qPickupTime: "Pickup Time",
-    qReturnDate: "Return Date",    
-    qReturnTime: "Return Time",
-    qPickupLocation: "Pickup location",
-    qDropoffLocation: "Drop-off location",
-    qPassengers: "Passengers",
-    qLuggage: "Luggage",
-    qVehicle: "Vehicle preference",
-    qName: "Name",
-    qPhone: "Phone",
-    qEmail: "Email",
-    qNotes: "Notes",
-    qSend: "Send Request",
-    qPlaceholderPickup: "Airport / hotel / address",
-    qPlaceholderDropoff: "City / address",
-    qPlaceholderLuggage: "e.g. 4 suitcases + 2 backpacks",
-    qPlaceholderNotes: "Flight number, stops, child seats..."
-    footerNote:"© 2026 VIP Coach Transfers s.r.o. All rights reserved."
+
+    phoneLabel: "Phone / WhatsApp",
+    emailLabel: "Email",
+    phone: "+420 775 091 730",
+    email: "info@vipct.org"
   },
+
+  // =====================================================
+  // CZECH
+  // =====================================================
   cz: {
+
     brand: "VIP Coach Transfers",
-    nav: { home:"Domů", services:"Služby", fleet:"Vozový park", programs:"Programy", quote:"Nezávazná poptávka", contact:"Kontakt" },
-    heroTitle: "Luxusní transfery a řidičské služby v Praze",
-    heroText: "Letištní transfery, meziměstské jízdy, VIP vany, sedany a autobusy. Rychlá nabídka, 24/7, podpora CZ/EN/AR.",
-    ctaQuote: "Získat nabídku",
-    ctaWa: "Rezervace přes WhatsApp",
-    badges: ["Licencovaná společnost", "24/7 servis", "Profesionální řidiči", "Fixní cenová nabídka"],
-    servicesTitle: "Služby",
-    s1: {t:"Letištní transfery", d:"Přílety/odlety, meet & greet, sledování letu."},
-    s2: {t:"Meziměstské jízdy", d:"Praha ↔ Vídeň, Mnichov, Berlín, Budapešť a další."},
-    s3: {t:"VIP služba", d:"Prémiové pohodlí pro business, diplomaty a akce."},
-    s4: {t:"Řidič k dispozici", d:"Hodinové pronájmy — řidič je stále s vámi."},
-    fleetTitle: "Ukázka vozů",
-    f1:{t:"Luxusní sedan", d:"Pohodlí pro 1–3 osoby."},
-    f2:{t:"Mercedes V-Class", d:"VIP van pro 4–7 osob."},
-    f3:{t:"Autobusy", d:"Skupiny — 16 až 55 míst."},
-    programsTitle:"Oblíbené programy",
-    programsNote:"Doporučeno: samostatné SEO stránky pro každou destinaci (Praha → Český Krumlov, Karlovy Vary, Drážďany…).",
-    contactTitle:"Kontakt",
-    phoneLabel:"Telefon / WhatsApp",
-    emailLabel:"Email",
-    addrLabel:"Adresa",
-    addr:"Moulikova 2240/5, 150 00 Praha, Czechia",
-    phone:"+420 775 091 730",
-    email:"info@vipct.org",
-    company:"VIP Coach Transfers s.r.o.",
-    companyIdLabel: "IČO",
-    companyIdValue: "23693592",
-    vatLabel: "DIČ",
-    vatValue: "CZ23693592",
+
+    nav: {
+      home: "Domů",
+      services: "Služby",
+      fleet: "Vozový park",
+      programs: "Programy",
+      quote: "Poptávka",
+      contact: "Kontakt"
+    },
+
+    footerNote: "VIP Coach Transfers s.r.o. • Praha • 24/7 Luxusní přeprava",
+
+    ctaQuote: "Poptávka",
+
+    qTripType: "Typ cesty",
+    qOneWay: "Jednosměrná",
+    qRoundTrip: "Zpáteční",
+    qPickupDate: "Datum vyzvednutí",
+    qPickupTime: "Čas vyzvednutí",
+    qReturnDate: "Datum návratu",
+    qReturnTime: "Čas návratu",
+    qPickupLocation: "Místo vyzvednutí",
+    qDropoffLocation: "Cíl",
+    qPassengers: "Počet osob",
+    qLuggage: "Zavazadla",
+    qVehicle: "Preferované vozidlo",
+    qVehicleSedan: "Luxusní sedan",
+    qVehicleVClass: "Mercedes V-Class",
+    qVehicleCoach: "Minibus / Autobus",
+    qName: "Jméno",
+    qPhone: "Telefon",
+    qEmail: "Email",
+    qNotes: "Poznámky",
+    qSend: "Odeslat poptávku",
+    qFormSubmitNote: "Po prvním odeslání vám FormSubmit pošle potvrzovací email. Otevřete jej a potvrďte.",
+
+    qPlaceholderPickup: "Letiště / hotel / adresa",
+    qPlaceholderDropoff: "Město / adresa",
+    qPlaceholderLuggage: "např. 4 kufry + 2 batohy",
+    qPlaceholderNotes: "Číslo letu, zastávky, dětské sedačky...",
+
     waModalTitle: "VIP Coach Transfers",
     waModalSubtitle: "Potvrzení rezervace přes WhatsApp",
     waPreviewLabel: "Náhled zprávy:",
@@ -114,6 +142,7 @@ window.I18N = {
     waSend: "Odeslat přes WhatsApp",
     waRedirectNote: "Po otevření WhatsApp budete přesměrováni na potvrzovací stránku.",
     waOpening: "Otevírám WhatsApp…",
+
     tyTitle: "Děkujeme | VIP Coach Transfers",
     tyHeadline: "Děkujeme!",
     tySubtext: "Vaše poptávka je připravena. Pokud se WhatsApp neotevřel, použijte tlačítko níže.",
@@ -132,58 +161,60 @@ window.I18N = {
     tyHomeBtn: "Zpět na úvod",
     tyNewQuoteBtn: "Nová poptávka",
     tyWaBtn: "Otevřít WhatsApp",
-    qTripType: "Typ cesty",
-    qPickupDate: "Datum vyzvednutí",
-    qPickupTime: "Čas vyzvednutí",
-    qReturnDate: "Datum návratu",
-    qReturnTime: "Čas návratu",
-    qPickupLocation: "Místo vyzvednutí",
-    qDropoffLocation: "Cíl",
-    qPassengers: "Počet osob",
-    qLuggage: "Zavazadla",
-    qVehicle: "Preferované vozidlo",
-    qName: "Jméno",
-    qPhone: "Telefon",
-    qEmail: "Email",
-    qNotes: "Poznámky",
-    qSend: "Odeslat poptávku",
-    qPlaceholderPickup: "Letiště / hotel / adresa",
-    qPlaceholderDropoff: "Město / adresa",
-    qPlaceholderLuggage: "např. 4 kufry + 2 batohy",
-    qPlaceholderNotes: "Číslo letu, zastávky, dětské sedačky..."
-    footerNote:"© 2026 VIP Coach Transfers s.r.o. Všechna práva vyhrazena."
+
+    phoneLabel: "Telefon / WhatsApp",
+    emailLabel: "Email",
+    phone: "+420 775 091 730",
+    email: "info@vipct.org"
   },
+
+  // =====================================================
+  // ARABIC
+  // =====================================================
   ar: {
+
     brand: "VIP Coach Transfers",
-    nav: { home:"الرئيسية", services:"الخدمات", fleet:"الأسطول", programs:"البرامج", quote:"طلب عرض سعر", contact:"اتصل بنا" },
-    heroTitle: "خدمات نقل فاخرة وسائق خاص في براغ",
-    heroText: "تنقلات المطار، رحلات بين المدن، سيارات سيدان فاخرة، V-Class، وحافلات. عروض سريعة وخدمة 24/7 ودعم عربي.",
+
+    nav: {
+      home: "الرئيسية",
+      services: "الخدمات",
+      fleet: "الأسطول",
+      programs: "البرامج",
+      quote: "طلب عرض سعر",
+      contact: "اتصل بنا"
+    },
+
+    footerNote: "VIP Coach Transfers s.r.o. • براغ • نقل فاخر 24/7",
+
     ctaQuote: "طلب عرض سعر",
-    ctaWa: "الحجز عبر واتساب",
-    badges: ["شركة مرخصة", "خدمة 24/7", "سائقون محترفون", "سعر واضح"],
-    servicesTitle: "الخدمات",
-    s1: {t:"تنقلات المطار", d:"استقبال ومغادرة مع تتبع الرحلات وخدمة الاستقبال."},
-    s2: {t:"بين المدن", d:"براغ ↔ فيينا، ميونخ، برلين، بودابست وغيرها."},
-    s3: {t:"خدمة VIP", d:"راحة عالية لرجال الأعمال والوفود والمناسبات."},
-    s4: {t:"سائق تحت الطلب", d:"حجز بالساعة — السائق معك طوال الوقت."},
-    fleetTitle: "الأسطول",
-    f1:{t:"سيدان فاخرة", d:"حتى 3 ركاب."},
-    f2:{t:"مرسيدس V-Class", d:"فان VIP حتى 7 ركاب."},
-    f3:{t:"حافلات", d:"للمجموعات — 16 إلى 55 مقعدًا."},
-    programsTitle:"برامج شائعة",
-    programsNote:"ننصح بصفحات منفصلة لكل وجهة لتحسين الظهور في جوجل.",
-    contactTitle:"اتصل بنا",
-    phoneLabel:"الهاتف / واتساب",
-    emailLabel:"البريد",
-    addrLabel:"العنوان",
-    addr:"Moulikova 2240/5, 150 00 Praha, Czechia",
-    phone:"730 091 775 420+",
-    email:"info@vipct.org",
-    company:"VIP Coach Transfers s.r.o",
-    companyIdLabel: "رقم الشركة",
-    companyIdValue: "23693592",
-    vatLabel: "الرقم الضريبي",
-    vatValue: "CZ23693592",
+
+    qTripType: "نوع الرحلة",
+    qOneWay: "ذهاب فقط",
+    qRoundTrip: "ذهاب وعودة",
+    qPickupDate: "تاريخ الانطلاق",
+    qPickupTime: "وقت الانطلاق",
+    qReturnDate: "تاريخ العودة",
+    qReturnTime: "وقت العودة",
+    qPickupLocation: "موقع الانطلاق",
+    qDropoffLocation: "الوجهة",
+    qPassengers: "عدد الركاب",
+    qLuggage: "الأمتعة",
+    qVehicle: "نوع السيارة",
+    qVehicleSedan: "سيدان فاخرة",
+    qVehicleVClass: "مرسيدس V-Class",
+    qVehicleCoach: "ميني باص / حافلة",
+    qName: "الاسم",
+    qPhone: "الهاتف",
+    qEmail: "البريد الإلكتروني",
+    qNotes: "ملاحظات",
+    qSend: "إرسال الطلب",
+    qFormSubmitNote: "بعد الإرسال الأول، سيصلك بريد لتأكيد الطلب. افتح البريد وقم بالتأكيد.",
+
+    qPlaceholderPickup: "المطار / الفندق / العنوان",
+    qPlaceholderDropoff: "المدينة / العنوان",
+    qPlaceholderLuggage: "مثال: 4 حقائب + 2 شنطة",
+    qPlaceholderNotes: "رقم الرحلة، توقفات، كرسي أطفال...",
+
     waModalTitle: "VIP Coach Transfers",
     waModalSubtitle: "تأكيد الحجز عبر واتساب",
     waPreviewLabel: "معاينة الرسالة:",
@@ -191,6 +222,7 @@ window.I18N = {
     waSend: "إرسال عبر واتساب",
     waRedirectNote: "سيتم تحويلك إلى صفحة التأكيد بعد فتح واتساب.",
     waOpening: "جاري فتح واتساب…",
+
     tyTitle: "شكراً | VIP Coach Transfers",
     tyHeadline: "شكراً لك!",
     tySubtext: "طلبك جاهز. إذا لم يفتح واتساب، استخدم الزر أدناه.",
@@ -209,25 +241,11 @@ window.I18N = {
     tyHomeBtn: "العودة للرئيسية",
     tyNewQuoteBtn: "طلب جديد",
     tyWaBtn: "فتح واتساب",
-    qTripType: "نوع الرحلة",
-qPickupDate: "تاريخ الانطلاق",
-qPickupTime: "وقت الانطلاق",
-qReturnDate: "تاريخ العودة",
-qReturnTime: "وقت العودة",
-qPickupLocation: "موقع الانطلاق",
-qDropoffLocation: "الوجهة",
-qPassengers: "عدد الركاب",
-qLuggage: "الأمتعة",
-qVehicle: "نوع السيارة",
-qName: "الاسم",
-qPhone: "الهاتف",
-qEmail: "البريد الإلكتروني",
-qNotes: "ملاحظات",
-qSend: "إرسال الطلب",
-qPlaceholderPickup: "المطار / الفندق / العنوان",
-qPlaceholderDropoff: "المدينة / العنوان",
-qPlaceholderLuggage: "مثال: 4 حقائب + 2 شنطة",
-qPlaceholderNotes: "رقم الرحلة، توقفات، كرسي أطفال..."
-    footerNote:"© 2026 VIP Coach Transfers s.r.o. جميع الحقوق محفوظة."
+
+    phoneLabel: "الهاتف / واتساب",
+    emailLabel: "البريد الإلكتروني",
+    phone: "+420 775 091 730",
+    email: "info@vipct.org"
   }
+
 };
