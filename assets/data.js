@@ -207,7 +207,7 @@ window.I18N = {
     ctaQuote: "طلب عرض سعر",
 
     // ================= CONTACT (ADDED) =================
-    company: "VIP Coach Transfers s.r.o.",
+    company: "VIP Coach Transfers s.r.o",
     companyIdLabel: "رقم الشركة",
     companyIdValue: "23693592",
     vatLabel: "الرقم الضريبي",
