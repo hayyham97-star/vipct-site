@@ -1,61 +1,85 @@
-<!doctype html><html><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contact | VIP Coach Transfers</title>
-<link rel="stylesheet" href="assets/style.css">
-</head><body>
-<header><div class="container nav">
-  <div class="brand"><div class="logo">VIP</div><div><strong data-i18n="brand"></strong><br><span class="small">Prague • 24/7</span></div></div>
-  <nav class="links">
-    <a data-page="home" href="index.html" data-nav="home">Home</a>
-    <a data-page="services" href="services.html" data-nav="services">Services</a>
-    <a data-page="fleet" href="fleet.html" data-nav="fleet">Fleet</a>
-    <a data-page="programs" href="programs.html" data-nav="programs">Programs</a>
-    <a data-page="quote" href="quote.html" data-nav="quote">Get a Quote</a>
-    <a data-page="contact" href="contact.html" data-nav="contact">Contact</a>
-  </nav>
-  <div class="lang"><button type="button" data-lang="en">EN</button><button type="button" data-lang="cz">CZ</button><button type="button" data-lang="ar">AR</button></div>
-</div></header>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="contactTitle">Contact</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
 
-<main class="container" style="padding:26px 0 44px">
-  <h1 class="sectionTitle" data-i18n="contactTitle">Contact</h1>
-  <section class="grid">
+<body>
 
-  <!-- CONTACT DETAILS (CENTERED) -->
-  <div class="card cols-12" style="text-align:center; max-width:800px; margin:0 auto;">
-    <h3 style="margin-bottom:15px;" data-i18n="company">VIP Coach Transfers s.r.o.</h3>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">VIP</div>
+      <div>
+        <strong data-i18n="brand">VIP Coach Transfers</strong><br>
+        <span class="small">Prague • 24/7</span>
+      </div>
+    </div>
 
-    <p class="note">
-      <span data-i18n="companyIdLabel"></span>:
-      <strong data-i18n="companyIdValue"></strong>
-    </p>
+    <nav class="links">
+      <a data-page="home" href="index.html" data-nav="home">Home</a>
+      <a data-page="services" href="services.html" data-nav="services">Services</a>
+      <a data-page="fleet" href="fleet.html" data-nav="fleet">Fleet</a>
+      <a data-page="programs" href="programs.html" data-nav="programs">Programs</a>
+      <a data-page="quote" href="quote.html" data-nav="quote">Get a Quote</a>
+      <a data-page="contact" href="contact.html" data-nav="contact">Contact</a>
+    </nav>
 
-    <p class="note">
-      <span data-i18n="vatLabel"></span>:
-      <strong data-i18n="vatValue"></strong>
-    </p>
-
-    <p class="note">
-      <span data-i18n="addrLabel"></span>:
-      <strong data-i18n="addr"></strong>
-    </p>
-
-    <p class="note">
-      <span data-i18n="phoneLabel"></span>:
-      <strong data-i18n="phone"></strong>
-    </p>
-
-    <p class="note">
-      <span data-i18n="emailLabel"></span>:
-      <strong data-i18n="email"></strong>
-    </p>
-
-    <div class="heroActions" style="justify-content:center; margin-top:18px;">
-      <a class="btn primary" data-wa href="#">WhatsApp</a>
-      <a class="btn" href="quote.html" data-i18n="ctaQuote"></a>
+    <div class="lang">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="cz">CZ</button>
+      <button type="button" data-lang="ar">AR</button>
     </div>
   </div>
+</header>
 
-</section>
+<main class="container" style="padding:40px 0 60px">
+
+  <h1 class="sectionTitle" data-i18n="contactTitle">Contact</h1>
+
+  <!-- CONTACT DETAILS -->
+  <div class="card" style="text-align:center; max-width:800px; margin:0 auto; padding:40px;">
+    
+    <h2 style="margin-bottom:20px;" data-i18n="company">
+      VIP Coach Transfers s.r.o.
+    </h2>
+
+    <p class="note">
+      <strong data-i18n="companyIdLabel"></strong>:
+      <span data-i18n="companyIdValue"></span>
+    </p>
+
+    <p class="note">
+      <strong data-i18n="vatLabel"></strong>:
+      <span data-i18n="vatValue"></span>
+    </p>
+
+    <p class="note">
+      <strong data-i18n="addrLabel"></strong>:
+      <span data-i18n="addr"></span>
+    </p>
+
+    <p class="note">
+      <strong data-i18n="phoneLabel"></strong>:
+      <span data-i18n="phone"></span>
+    </p>
+
+    <p class="note">
+      <strong data-i18n="emailLabel"></strong>:
+      <span data-i18n="email"></span>
+    </p>
+
+    <div class="heroActions" style="justify-content:center; margin-top:25px;">
+      <a class="btn primary" data-wa href="#">WhatsApp</a>
+      <a class="btn" href="quote.html" data-i18n="ctaQuote">Get a Quote</a>
+    </div>
+
+  </div>
+
+</main>
 
 <!-- FULL WIDTH MAP -->
 <div style="width:100%; margin-top:40px;">
@@ -70,11 +94,19 @@
   </iframe>
 </div>
 
-<section class="grid">
+<!-- FLOAT WHATSAPP -->
+<div class="whatsapp-float">
+  <a data-wa href="#">WhatsApp • +420 775 091 730</a>
+</div>
 
-</main>
+<footer class="footer">
+  <div class="container">
+    <div class="small" data-i18n="footerNote"></div>
+  </div>
+</footer>
 
-<div class="whatsapp-float"><a data-wa href="#">WhatsApp • +420 775 091 730</a></div>
-<footer class="footer"><div class="container"><div class="small" data-i18n="footerNote"></div></div></footer>
-<script src="assets/data.js"></script><script src="assets/app.js"></script>
-</body></html>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>
