@@ -1,37 +1,49 @@
 // ===============================
-// VIP Coach Transfers - Premium App.js
+// VIP Coach Transfers - app.js (nested i18n + rtl + nav + whatsapp)
 // ===============================
 
-(function(){
-
+(function () {
+  const LANG_KEY = "vipct_lang";
   const DEFAULT_LANG = "en";
+  const SUPPORTED = ["en", "cz", "ar"];
   const WA_NUMBER = "420775091730";
 
-  // -------------------------
-  // Language System
-  // -------------------------
-
-  function getSavedLang(){
-    return localStorage.getItem("vipct_lang") || DEFAULT_LANG;
+  function getLang() {
+    const saved = localStorage.getItem(LANG_KEY);
+    return SUPPORTED.includes(saved) ? saved : DEFAULT_LANG;
   }
 
-  function saveLang(lang){
-    localStorage.setItem("vipct_lang", lang);
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) return;
+    localStorage.setItem(LANG_KEY, lang);
+    applyLanguage(lang);
+    setLangButtons(lang);
   }
 
-  function applyLanguage(lang){
-    if(!window.I18N || !window.I18N[lang]) return;
+  // Supports dot notation like "nav.home" and array like "badges.0"
+  function getValue(obj, path) {
+    return path.split(".").reduce((acc, part) => {
+      if (acc == null) return undefined;
+      // allow numeric access for arrays
+      if (/^\d+$/.test(part)) return acc[Number(part)];
+      return acc[part];
+    }, obj);
+  }
 
+  function setLangButtons(lang) {
+    document.querySelectorAll("[data-lang]").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+  }
+
+  function applyLanguage(lang) {
+    if (!window.I18N || !window.I18N[lang]) return;
     const dict = window.I18N[lang];
 
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key = el.getAttribute("data-i18n");
-      if(dict[key]) el.textContent = dict[key];
-    });
+    document.documentElement.lang = (lang === "cz" ? "cs" : lang);
 
-    document.documentElement.lang = lang;
-
-    if(lang === "ar"){
+    // RTL for Arabic
+    if (lang === "ar") {
       document.documentElement.dir = "rtl";
       document.body.classList.add("rtl");
     } else {
@@ -39,146 +51,56 @@
       document.body.classList.remove("rtl");
     }
 
-    saveLang(lang);
-  }
-
-  function initLanguageSwitcher(){
-    document.querySelectorAll("[data-lang]").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        const lang = btn.getAttribute("data-lang");
-        applyLanguage(lang);
-      });
+    // Translate all elements with data-i18n
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.dataset.i18n;
+      const val = getValue(dict, key);
+      if (typeof val === "string") el.textContent = val;
     });
-  }
 
-  // -------------------------
-  // WhatsApp Auto Link
-  // -------------------------
+    // Translate nav items if you use data-nav keys (home/services/...)
+    if (dict.nav) {
+      Object.keys(dict.nav).forEach((k) => {
+        const el = document.querySelector(`[data-nav='${k}']`);
+        if (el) el.textContent = dict.nav[k];
+      });
+    }
 
-  function initWhatsAppLinks(){
-    document.querySelectorAll("[data-wa]").forEach(el=>{
+    // WhatsApp links
+    document.querySelectorAll("[data-wa]").forEach((el) => {
       el.setAttribute("href", `https://wa.me/${WA_NUMBER}`);
       el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
     });
   }
 
-  // -------------------------
-  // Sticky Header Effect
-  // -------------------------
+  function highlightActiveNav() {
+    const current = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const map = {
+      "index.html": "home",
+      "services.html": "services",
+      "fleet.html": "fleet",
+      "programs.html": "programs",
+      "quote.html": "quote",
+      "contact.html": "contact",
+      "thankyou.html": "quote"
+    };
+    const key = map[current] || "home";
 
-  function initStickyHeader(){
-    const header = document.querySelector("header");
-
-    window.addEventListener("scroll", ()=>{
-      if(window.scrollY > 50){
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
-    });
+    document.querySelectorAll(".links a").forEach((a) => a.classList.remove("active"));
+    const active = document.querySelector(`.links a[data-page='${key}']`);
+    if (active) active.classList.add("active");
   }
 
-  // -------------------------
-  // Smooth Page Transitions
-  // -------------------------
-
-  function initPageTransitions(){
-
-    document.body.classList.add("fade-in");
-
-    document.querySelectorAll("a").forEach(link=>{
-      if(link.hostname === window.location.hostname && !link.hasAttribute("target")){
-        link.addEventListener("click", function(e){
-          const href = this.getAttribute("href");
-
-          if(href && !href.startsWith("#")){
-            e.preventDefault();
-            document.body.classList.add("fade-out");
-
-            setTimeout(()=>{
-              window.location.href = href;
-            }, 300);
-          }
-        });
-      }
+  document.addEventListener("DOMContentLoaded", () => {
+    // language buttons
+    document.querySelectorAll("[data-lang]").forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.dataset.lang));
     });
-  }
 
-  // -------------------------
-  // Scroll Animations
-  // -------------------------
-
-  function initScrollAnimations(){
-
-    const elements = document.querySelectorAll(".card, .sectionTitle, .heroCard");
-
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("animate");
-        }
-      });
-    }, { threshold: 0.2 });
-
-    elements.forEach(el=>{
-      el.classList.add("hidden");
-      observer.observe(el);
-    });
-  }
-
-  // -------------------------
-  // Loading Screen
-  // -------------------------
-
-  function initLoadingScreen(){
-
-    const loader = document.createElement("div");
-    loader.id = "pageLoader";
-    loader.innerHTML = `
-      <div class="loader-content">
-        <div class="loader-logo">VIP</div>
-        <div class="loader-spinner"></div>
-      </div>
-    `;
-
-    document.body.appendChild(loader);
-
-    window.addEventListener("load", ()=>{
-      loader.classList.add("hide");
-      setTimeout(()=>{
-        loader.remove();
-      }, 600);
-    });
-  }
-
-  // -------------------------
-  // Active Nav Highlight
-  // -------------------------
-
-  function highlightActiveNav(){
-    const currentPage = window.location.pathname.split("/").pop();
-    document.querySelectorAll("[data-page]").forEach(link=>{
-      if(link.getAttribute("href") === currentPage){
-        link.classList.add("active");
-      }
-    });
-  }
-
-  // -------------------------
-  // Initialize Everything
-  // -------------------------
-
-  document.addEventListener("DOMContentLoaded", ()=>{
-
-    initLoadingScreen();
-    initLanguageSwitcher();
-    initWhatsAppLinks();
-    initStickyHeader();
-    initPageTransitions();
-    initScrollAnimations();
+    const lang = getLang();
+    setLangButtons(lang);
+    applyLanguage(lang);
     highlightActiveNav();
-
-    applyLanguage(getSavedLang());
   });
-
 })();
