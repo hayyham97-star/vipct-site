@@ -30,6 +30,13 @@ window.I18N = {
     companyIdValue: "23693592",
     vatLabel: "VAT ID",
     vatValue: "CZ23693592",
+    waModalTitle: "VIP Coach Transfers",
+    waModalSubtitle: "Confirm WhatsApp booking",
+    waPreviewLabel: "Message preview:",
+    waCancel: "Cancel",
+    waSend: "Send via WhatsApp",
+    waRedirectNote: "You will be redirected to the confirmation page after WhatsApp opens.",
+    waOpening: "Opening WhatsApp…",
     footerNote:"© 2026 VIP Coach Transfers s.r.o. All rights reserved."
   },
   cz: {
@@ -63,6 +70,13 @@ window.I18N = {
     companyIdValue: "23693592",
     vatLabel: "DIČ",
     vatValue: "CZ23693592",
+    waModalTitle: "VIP Coach Transfers",
+    waModalSubtitle: "Potvrzení rezervace přes WhatsApp",
+    waPreviewLabel: "Náhled zprávy:",
+    waCancel: "Zrušit",
+    waSend: "Odeslat přes WhatsApp",
+    waRedirectNote: "Po otevření WhatsApp budete přesměrováni na potvrzovací stránku.",
+    waOpening: "Otevírám WhatsApp…",
     footerNote:"© 2026 VIP Coach Transfers s.r.o. Všechna práva vyhrazena."
   },
   ar: {
@@ -96,6 +110,13 @@ window.I18N = {
     companyIdValue: "23693592",
     vatLabel: "الرقم الضريبي",
     vatValue: "CZ23693592",
+    waModalTitle: "VIP Coach Transfers",
+    waModalSubtitle: "تأكيد الحجز عبر واتساب",
+    waPreviewLabel: "معاينة الرسالة:",
+    waCancel: "إلغاء",
+    waSend: "إرسال عبر واتساب",
+    waRedirectNote: "سيتم تحويلك إلى صفحة التأكيد بعد فتح واتساب.",
+    waOpening: "جاري فتح واتساب…",
     footerNote:"© 2026 VIP Coach Transfers s.r.o. جميع الحقوق محفوظة."
   }
 };
