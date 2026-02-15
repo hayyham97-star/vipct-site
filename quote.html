@@ -1,20 +1,40 @@
-<!doctype html><html><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Get a Quote | VIP Coach Transfers</title>
-<link rel="stylesheet" href="assets/style.css">
-</head><body>
-<header><div class="container nav">
-  <div class="brand"><div class="logo">VIP</div><div><strong data-i18n="brand"></strong><br><span class="small">Prague • 24/7</span></div></div>
-  <nav class="links">
-    <a data-page="home" href="index.html" data-nav="home">Home</a>
-    <a data-page="services" href="services.html" data-nav="services">Services</a>
-    <a data-page="fleet" href="fleet.html" data-nav="fleet">Fleet</a>
-    <a data-page="programs" href="programs.html" data-nav="programs">Programs</a>
-    <a data-page="quote" href="quote.html" data-nav="quote">Get a Quote</a>
-    <a data-page="contact" href="contact.html" data-nav="contact">Contact</a>
-  </nav>
-  <div class="lang"><button type="button" data-lang="en">EN</button><button type="button" data-lang="cz">CZ</button><button type="button" data-lang="ar">AR</button></div>
-</div></header>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Get a Quote | VIP Coach Transfers</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">VIP</div>
+      <div>
+        <strong data-i18n="brand"></strong><br>
+        <span class="small">Prague • 24/7</span>
+      </div>
+    </div>
+
+    <nav class="links">
+      <a data-page="home" href="index.html" data-nav="home">Home</a>
+      <a data-page="services" href="services.html" data-nav="services">Services</a>
+      <a data-page="fleet" href="fleet.html" data-nav="fleet">Fleet</a>
+      <a data-page="programs" href="programs.html" data-nav="programs">Programs</a>
+      <a data-page="quote" href="quote.html" data-nav="quote">Get a Quote</a>
+      <a data-page="contact" href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+
+    <div class="lang">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="cz">CZ</button>
+      <button type="button" data-lang="ar">AR</button>
+    </div>
+  </div>
+</header>
 
 <main class="container" style="padding:26px 0 44px">
   <h1 class="sectionTitle" data-i18n="ctaQuote">Get a Quote</h1>
@@ -24,38 +44,37 @@
       <input type="hidden" name="_subject" value="VIPCT Quote Request" />
       <input type="hidden" name="_captcha" value="true" />
 
-<div class="field">
-  <label>Pickup Date</label>
-  <input name="pickup_date" id="pickup_date" type="date" required>
-</div>
+      <!-- Trip type FIRST (so JS can show/hide return fields correctly) -->
+      <div class="field">
+        <label>Trip Type</label>
+        <select name="trip_type" id="trip_type" required>
+          <option value="oneway">One-way</option>
+          <option value="roundtrip">Round trip</option>
+        </select>
+      </div>
 
-<div class="field">
-  <label>Pickup Time</label>
-  <select name="pickup_time" id="pickup_time" required></select>
-</div>
+      <div class="field">
+        <label>Pickup Date</label>
+        <input name="pickup_date" id="pickup_date" type="date" required>
+      </div>
 
-<!-- Return fields (only for round trip) -->
-<div id="return_fields" style="display:none;">
-  <div class="field">
-    <label>Return Date</label>
-    <input name="return_date" id="return_date" type="date">
-  </div>
+      <div class="field">
+        <label>Pickup Time</label>
+        <select name="pickup_time" id="pickup_time" required></select>
+      </div>
 
-  <div class="field">
-    <label>Return Time</label>
-    <select name="return_time" id="return_time"></select>
-  </div>
-</div>
+      <!-- Return fields (only for round trip) -->
+      <div id="return_fields" style="display:none;">
+        <div class="field">
+          <label>Return Date</label>
+          <input name="return_date" id="return_date" type="date" disabled>
+        </div>
 
-
-<div class="field">
-  <label>Trip Type</label>
-  <select name="trip_type" id="trip_type" required>
-    <option value="oneway">One-way</option>
-    <option value="roundtrip">Round trip</option>
-  </select>
-</div>
-
+        <div class="field">
+          <label>Return Time</label>
+          <select name="return_time" id="return_time" disabled></select>
+        </div>
+      </div>
 
       <div class="field">
         <label>Pickup location</label>
@@ -111,24 +130,35 @@
         <a class="btn" data-wa href="#">WhatsApp</a>
       </div>
 
-      <p class="note">After first submit, FormSubmit will email you a confirmation link to activate. Open that email and click confirm.</p>
+      <p class="note">
+        After first submit, FormSubmit will email you a confirmation link to activate. Open that email and click confirm.
+      </p>
     </form>
   </div>
 </main>
 
-<div class="whatsapp-float"><a data-wa href="#">WhatsApp • +420 775 091 730</a></div>
-<footer class="footer"><div class="container"><div class="small" data-i18n="footerNote"></div></div></footer>
-<script src="assets/data.js"></script><script src="assets/app.js"></script>
+<div class="whatsapp-float">
+  <a data-wa href="#">WhatsApp • +420 775 091 730</a>
+</div>
 
-  <script>
-  // --- Helpers ---
+<footer class="footer">
+  <div class="container">
+    <div class="small" data-i18n="footerNote"></div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
   function pad2(n){ return String(n).padStart(2,'0'); }
 
-  // Create time options every 15 minutes (00:00 to 23:45)
+  // Create time options every 5 minutes (00:00 to 23:55)
   function fillTimeSelect(selectEl){
     selectEl.innerHTML = "";
     for(let h=0; h<24; h++){
-      for(let m=0; m<60; m+=15){
+      for(let m=0; m<60; m+=5){
         const t = `${pad2(h)}:${pad2(m)}`;
         const opt = document.createElement("option");
         opt.value = t;
@@ -138,7 +168,7 @@
     }
   }
 
-  // Set min date = today
+  // Set min date = today (no past dates)
   function setMinToday(inputEl){
     const now = new Date();
     const yyyy = now.getFullYear();
@@ -157,11 +187,9 @@
     const isRound = tripType === "roundtrip";
     wrap.style.display = isRound ? "block" : "none";
 
-    // Required only when visible
     rDate.required = isRound;
     rTime.required = isRound;
 
-    // Disable when hidden so it won't be submitted
     rDate.disabled = !isRound;
     rTime.disabled = !isRound;
   }
@@ -172,41 +200,34 @@
     const rDate = document.getElementById("return_date");
     if(pDate){
       rDate.min = pDate;
-      // if return date is earlier, clear it
       if(rDate.value && rDate.value < pDate) rDate.value = "";
     }
   }
 
-  // --- Init on page load ---
   document.addEventListener("DOMContentLoaded", () => {
     const tripType = document.getElementById("trip_type");
     const pickupDate = document.getElementById("pickup_date");
     const returnDate = document.getElementById("return_date");
-
     const pickupTime = document.getElementById("pickup_time");
     const returnTime = document.getElementById("return_time");
 
-    // Fill time dropdowns
     fillTimeSelect(pickupTime);
     fillTimeSelect(returnTime);
 
-    // Min dates
     setMinToday(pickupDate);
     setMinToday(returnDate);
 
-    // Events
-    tripType.addEventListener("change", updateReturnFields);
-    pickupDate.addEventListener("change", () => {
-      syncReturnMin();
-      // also ensure return date min stays correct after pickup changes
-      setMinToday(pickupDate);
-    });
+    // Flatpickr calendars (small popup calendar)
+    flatpickr("#pickup_date", { minDate: "today", dateFormat: "Y-m-d" });
+    flatpickr("#return_date", { minDate: "today", dateFormat: "Y-m-d" });
 
-    // Initial state
+    tripType.addEventListener("change", updateReturnFields);
+    pickupDate.addEventListener("change", syncReturnMin);
+
     updateReturnFields();
     syncReturnMin();
   });
 </script>
 
-  
-</body></html>
+</body>
+</html>
