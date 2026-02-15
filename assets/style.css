@@ -143,3 +143,89 @@ textarea{min-height:110px; resize:vertical}
 }
 .rtl{direction:rtl}
 .rtl .links{justify-content:flex-start}
+/* ========================= */
+/* Page Transitions */
+/* ========================= */
+
+.fade-in {
+  animation: fadeIn .4s ease forwards;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========================= */
+/* Sticky Header */
+/* ========================= */
+
+header.sticky {
+  background: rgba(15,15,15,0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  transition: all .3s ease;
+}
+
+/* ========================= */
+/* Scroll Animations */
+/* ========================= */
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .6s ease;
+}
+
+.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================= */
+/* Loader */
+/* ========================= */
+
+#pageLoader {
+  position: fixed;
+  inset: 0;
+  background: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity .6s ease;
+}
+
+#pageLoader.hide {
+  opacity: 0;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #caa54c;
+  margin-bottom: 20px;
+}
+
+.loader-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255,255,255,0.1);
+  border-top-color: #caa54c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
