@@ -1,80 +1,214 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Thank You | VIP Coach Transfers</title>
+  <title data-i18n="tyTitle">Thank You | VIP Coach Transfers</title>
   <link rel="stylesheet" href="assets/style.css">
   <style>
-    body{
-      background:#0f0f0f;
-      color:#ffffff;
-      font-family:Arial, Helvetica, sans-serif;
+    .tyWrap{padding:60px 0 70px}
+    .tyCard{max-width:860px;margin:0 auto;text-align:center}
+    .tyLogo{display:flex;justify-content:center;margin-bottom:16px}
+    .tyLogoBox{
+      width:68px;height:68px;border-radius:18px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      display:grid;place-items:center;overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.55);
     }
-    .container{
-      max-width:900px;
-      margin:0 auto;
-      padding:60px 20px;
+    .tyLogoBox img{max-height:40px;width:auto}
+    .checkWrap{display:flex;justify-content:center;margin:10px 0 8px}
+    .check{
+      width:84px;height:84px;border-radius:999px;
+      border:2px solid rgba(202,165,76,.45);
+      display:grid;place-items:center;
+      box-shadow:0 20px 60px rgba(0,0,0,.55);
+      position:relative;
+      animation: pop .55s ease both;
     }
-    .card{
-      background:#151515;
+    .check svg{width:46px;height:46px}
+    .check path{
+      stroke:#caa54c; stroke-width:7; fill:none; stroke-linecap:round; stroke-linejoin:round;
+      stroke-dasharray:120; stroke-dashoffset:120;
+      animation: draw .75s .15s ease forwards;
+    }
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes pop{
+      0%{transform:scale(.85); opacity:0}
+      100%{transform:scale(1); opacity:1}
+    }
+
+    .tyTitle{margin:10px 0 6px; font-size:34px}
+    .tyText{margin:0; color:var(--muted); line-height:1.55}
+    .summary{
+      text-align:left;
+      margin-top:18px;
+      padding:16px;
       border-radius:18px;
-      padding:40px;
-      text-align:center;
-      box-shadow:0 20px 60px rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,.10);
+      background:#0f0f0f;
     }
-    h1{
-      margin-bottom:15px;
-      font-size:34px;
-    }
-    p{
-      color:#cccccc;
-      margin-bottom:25px;
-      font-size:16px;
-    }
-    .btn{
-      display:inline-block;
-      padding:12px 22px;
-      margin:6px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-      border:1px solid rgba(255,255,255,0.2);
-      color:white;
-    }
-    .btn.primary{
-      background:#caa54c;
-      color:black;
-      border:none;
-    }
-    .btn:hover{
-      transform:translateY(-2px);
-    }
+    .summary h3{margin:0 0 10px; font-size:16px}
+    .grid2{display:grid; gap:10px; grid-template-columns:1fr}
+    @media (min-width:820px){ .grid2{grid-template-columns:1fr 1fr} }
+    .row{display:flex; gap:10px; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.07); padding:10px 0}
+    .row:last-child{border-bottom:0}
+    .k{color:var(--muted)}
+    .v{font-weight:700}
+    .actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:18px}
+    .smallCenter{margin-top:14px; color:var(--muted); font-size:13px}
+
+    /* RTL tidy */
+    body.rtl .summary{ text-align:right; }
+    body.rtl .row{ flex-direction:row-reverse; }
   </style>
 </head>
 
 <body>
-
-<div class="container">
-  <div class="card">
-    <h1>Thank You!</h1>
-    <p>Your booking request has been prepared successfully.</p>
-    <p>If WhatsApp did not open automatically, please contact us directly.</p>
-
-    <div>
-      <a href="index.html" class="btn primary">Back to Home</a>
-      <a href="quote.html" class="btn">New Quote</a>
-      <a href="contact.html" class="btn">Contact Us</a>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">
+        <img src="assets/logo-gold.png" alt="VIP" style="height:32px;width:auto">
+      </div>
+      <div>
+        <strong data-i18n="brand">VIP Coach Transfers</strong><br>
+        <span class="small">Prague • 24/7</span>
+      </div>
     </div>
 
-    <p style="margin-top:30px;font-size:13px;color:#888;">
-      VIP Coach Transfers s.r.o.<br>
-      Prague • 24/7 Luxury Transfers
-    </p>
+    <nav class="links">
+      <a data-page="home" href="index.html" data-nav="home">Home</a>
+      <a data-page="services" href="services.html" data-nav="services">Services</a>
+      <a data-page="fleet" href="fleet.html" data-nav="fleet">Fleet</a>
+      <a data-page="programs" href="programs.html" data-nav="programs">Programs</a>
+      <a data-page="quote" href="quote.html" data-nav="quote">Get a Quote</a>
+      <a data-page="contact" href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+
+    <div class="lang" aria-label="Language switch">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="cz">CZ</button>
+      <button type="button" data-lang="ar">AR</button>
+    </div>
   </div>
-</div>
+</header>
+
+<main class="container tyWrap">
+  <div class="card tyCard">
+
+    <div class="tyLogo">
+      <div class="tyLogoBox">
+        <img src="assets/logo-gold.png" alt="VIP Coach Transfers">
+      </div>
+    </div>
+
+    <div class="checkWrap">
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 52 52">
+          <path d="M14 27 L23 36 L39 18"></path>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="tyTitle" data-i18n="tyHeadline">Thank you!</h1>
+    <p class="tyText" data-i18n="tySubtext">
+      Your request is ready. If WhatsApp didn’t open, use the button below.
+    </p>
+
+    <div class="summary" id="summaryBox" style="display:none;">
+      <h3 data-i18n="tySummaryTitle">Booking summary</h3>
+
+      <div class="grid2">
+        <div>
+          <div class="row"><div class="k" data-i18n="tyTripType">Trip type</div><div class="v" id="sTrip"></div></div>
+          <div class="row"><div class="k" data-i18n="tyPickupDate">Pickup date</div><div class="v" id="sPDate"></div></div>
+          <div class="row"><div class="k" data-i18n="tyPickupTime">Pickup time</div><div class="v" id="sPTime"></div></div>
+          <div class="row"><div class="k" data-i18n="tyPickup">Pickup</div><div class="v" id="sPickup"></div></div>
+          <div class="row"><div class="k" data-i18n="tyDropoff">Drop-off</div><div class="v" id="sDropoff"></div></div>
+        </div>
+
+        <div>
+          <div class="row"><div class="k" data-i18n="tyPassengers">Passengers</div><div class="v" id="sPassengers"></div></div>
+          <div class="row"><div class="k" data-i18n="tyLuggage">Luggage</div><div class="v" id="sLuggage"></div></div>
+          <div class="row"><div class="k" data-i18n="tyVehicle">Vehicle</div><div class="v" id="sVehicle"></div></div>
+          <div class="row"><div class="k" data-i18n="tyPhone">Phone</div><div class="v" id="sPhone"></div></div>
+          <div class="row" id="returnRow" style="display:none;">
+            <div class="k" data-i18n="tyReturn">Return</div><div class="v" id="sReturn"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="smallCenter" data-i18n="tySummaryNote">
+        This summary is shown from your last booking attempt.
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" href="index.html" data-i18n="tyHomeBtn">Back to Home</a>
+      <a class="btn" href="quote.html" data-i18n="tyNewQuoteBtn">New Quote</a>
+      <button type="button" class="btn" id="waFallback" data-i18n="tyWaBtn">Open WhatsApp</button>
+    </div>
+
+    <div class="smallCenter">
+      <span data-i18n="phoneLabel">Phone / WhatsApp</span>:
+      <strong data-i18n="phone">+420 775 091 730</strong> •
+      <span data-i18n="emailLabel">Email</span>:
+      <strong data-i18n="email">info@vipct.org</strong>
+    </div>
+
+  </div>
+</main>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+
+<script>
+  // Reads the booking info saved from quote.html and shows summary + WhatsApp fallback
+  (function(){
+    const WA_NUMBER = "420775091730";
+
+    function safe(v){ return (v === undefined || v === null || v === "") ? "-" : String(v); }
+
+    let booking = null;
+    let waMessage = "";
+
+    try{
+      booking = JSON.parse(sessionStorage.getItem("vipct_booking") || "null");
+      waMessage = sessionStorage.getItem("vipct_wa_message") || "";
+    }catch(e){ booking = null; }
+
+    const summaryBox = document.getElementById("summaryBox");
+    const waBtn = document.getElementById("waFallback");
+
+    if(booking){
+      summaryBox.style.display = "block";
+
+      document.getElementById("sTrip").textContent = safe(booking.tripLabel);
+      document.getElementById("sPDate").textContent = safe(booking.pickup_date);
+      document.getElementById("sPTime").textContent = safe(booking.pickup_time);
+      document.getElementById("sPickup").textContent = safe(booking.pickup);
+      document.getElementById("sDropoff").textContent = safe(booking.dropoff);
+      document.getElementById("sPassengers").textContent = safe(booking.passengers);
+      document.getElementById("sLuggage").textContent = safe(booking.luggage);
+      document.getElementById("sVehicle").textContent = safe(booking.vehicle);
+      document.getElementById("sPhone").textContent = safe(booking.phone);
+
+      if(booking.trip_type === "roundtrip" && (booking.return_date || booking.return_time)){
+        document.getElementById("returnRow").style.display = "flex";
+        document.getElementById("sReturn").textContent = `${safe(booking.return_date)} • ${safe(booking.return_time)}`;
+      }
+    }
+
+    waBtn.addEventListener("click", ()=>{
+      const msg = waMessage || "";
+      const url = msg
+        ? `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`
+        : `https://wa.me/${WA_NUMBER}`;
+      window.open(url, "_blank");
+    });
+  })();
+</script>
 
 </body>
 </html>
