@@ -271,7 +271,7 @@ window.I18N = {
 
     phoneLabel: "الهاتف / واتساب",
     emailLabel: "البريد الإلكتروني",
-    phone: "+420 775 091 730",
+    phone: "775 091 730 420+",
     email: "info@vipct.org"
   }
 
