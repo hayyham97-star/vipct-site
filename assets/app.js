@@ -1,6 +1,12 @@
-// ===============================
-// VIP Coach Transfers - app.js (nested i18n + rtl + nav + whatsapp)
-// ===============================
+// ============================================
+// VIP Coach Transfers - assets/app.js
+// - Language switch (EN/CZ/AR)
+// - Nested i18n keys support (e.g. nav.home, badges.0)
+// - Placeholder translation via data-i18n-placeholder
+// - RTL support for Arabic
+// - WhatsApp auto-links
+// - Active nav highlight
+// ============================================
 
 (function () {
   const LANG_KEY = "vipct_lang";
@@ -20,11 +26,10 @@
     setLangButtons(lang);
   }
 
-  // Supports dot notation like "nav.home" and array like "badges.0"
+  // Supports dot notation like "nav.home" and arrays like "badges.0"
   function getValue(obj, path) {
     return path.split(".").reduce((acc, part) => {
       if (acc == null) return undefined;
-      // allow numeric access for arrays
       if (/^\d+$/.test(part)) return acc[Number(part)];
       return acc[part];
     }, obj);
@@ -40,6 +45,7 @@
     if (!window.I18N || !window.I18N[lang]) return;
     const dict = window.I18N[lang];
 
+    // Set document lang (CZ should be "cs" technically)
     document.documentElement.lang = (lang === "cz" ? "cs" : lang);
 
     // RTL for Arabic
@@ -51,14 +57,21 @@
       document.body.classList.remove("rtl");
     }
 
-    // Translate all elements with data-i18n
+    // Translate text nodes
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.dataset.i18n;
       const val = getValue(dict, key);
       if (typeof val === "string") el.textContent = val;
     });
 
-    // Translate nav items if you use data-nav keys (home/services/...)
+    // Translate placeholders
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.dataset.i18nPlaceholder;
+      const val = getValue(dict, key);
+      if (typeof val === "string") el.setAttribute("placeholder", val);
+    });
+
+    // Translate nav links if dict.nav exists and you use data-nav="home" etc.
     if (dict.nav) {
       Object.keys(dict.nav).forEach((k) => {
         const el = document.querySelector(`[data-nav='${k}']`);
@@ -66,7 +79,7 @@
       });
     }
 
-    // WhatsApp links
+    // WhatsApp links (data-wa)
     document.querySelectorAll("[data-wa]").forEach((el) => {
       el.setAttribute("href", `https://wa.me/${WA_NUMBER}`);
       el.setAttribute("target", "_blank");
@@ -93,7 +106,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    // language buttons
+    // Language buttons
     document.querySelectorAll("[data-lang]").forEach((btn) => {
       btn.addEventListener("click", () => setLang(btn.dataset.lang));
     });
