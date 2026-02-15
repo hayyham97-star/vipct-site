@@ -25,6 +25,15 @@ window.I18N = {
     // ================= HOME =================
     ctaQuote: "Get a Quote",
 
+    // ================= CONTACT (ADDED) =================
+    company: "VIP Coach Transfers s.r.o.",
+    companyIdLabel: "Company ID",
+    companyIdValue: "23693592",
+    vatLabel: "VAT ID",
+    vatValue: "CZ23693592",
+    addrLabel: "Address",
+    addr: "Moulikova 2240/5, 150 00 Praha, Czechia",
+
     // ================= QUOTE PAGE =================
     qTripType: "Trip Type",
     qOneWay: "One-way",
@@ -108,6 +117,15 @@ window.I18N = {
 
     ctaQuote: "Poptávka",
 
+    // ================= CONTACT (ADDED) =================
+    company: "VIP Coach Transfers s.r.o.",
+    companyIdLabel: "IČO",
+    companyIdValue: "23693592",
+    vatLabel: "DIČ",
+    vatValue: "CZ23693592",
+    addrLabel: "Adresa",
+    addr: "Moulikova 2240/5, 150 00 Praha, Česko",
+
     qTripType: "Typ cesty",
     qOneWay: "Jednosměrná",
     qRoundTrip: "Zpáteční",
@@ -187,6 +205,15 @@ window.I18N = {
     footerNote: "VIP Coach Transfers s.r.o. • براغ • نقل فاخر 24/7",
 
     ctaQuote: "طلب عرض سعر",
+
+    // ================= CONTACT (ADDED) =================
+    company: "VIP Coach Transfers s.r.o.",
+    companyIdLabel: "رقم الشركة",
+    companyIdValue: "23693592",
+    vatLabel: "الرقم الضريبي",
+    vatValue: "CZ23693592",
+    addrLabel: "العنوان",
+    addr: "Moulikova 2240/5, 150 00 Praha, Czechia",
 
     qTripType: "نوع الرحلة",
     qOneWay: "ذهاب فقط",
