@@ -26,11 +26,11 @@ window.I18N = {
     phone:"+420 775 091 730",
     email:"info@vipct.org",
     company:"VIP Coach Transfers s.r.o.",
-    footerNote:"© 2026 VIP Coach Transfers s.r.o. All rights reserved."
     companyIdLabel: "Company ID",
     companyIdValue: "23693592",
     vatLabel: "VAT ID",
     vatValue: "CZ23693592",
+    footerNote:"© 2026 VIP Coach Transfers s.r.o. All rights reserved."
   },
   cz: {
     brand: "VIP Coach Transfers",
@@ -59,11 +59,11 @@ window.I18N = {
     phone:"+420 775 091 730",
     email:"info@vipct.org",
     company:"VIP Coach Transfers s.r.o.",
-    footerNote:"© 2026 VIP Coach Transfers s.r.o. Všechna práva vyhrazena."
     companyIdLabel: "IČO",
     companyIdValue: "23693592",
     vatLabel: "DIČ",
     vatValue: "CZ23693592",
+    footerNote:"© 2026 VIP Coach Transfers s.r.o. Všechna práva vyhrazena."
   },
   ar: {
     brand: "VIP Coach Transfers",
@@ -92,10 +92,10 @@ window.I18N = {
     phone:"+420 775 091 730",
     email:"info@vipct.org",
     company:"VIP Coach Transfers s.r.o.",
-    footerNote:"© 2026 VIP Coach Transfers s.r.o. جميع الحقوق محفوظة."
     companyIdLabel: "رقم الشركة",
     companyIdValue: "23693592",
     vatLabel: "الرقم الضريبي",
     vatValue: "CZ23693592",
+    footerNote:"© 2026 VIP Coach Transfers s.r.o. جميع الحقوق محفوظة."
   }
 };
