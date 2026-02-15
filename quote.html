@@ -24,18 +24,38 @@
       <input type="hidden" name="_subject" value="VIPCT Quote Request" />
       <input type="hidden" name="_captcha" value="true" />
 
-      <div class="field">
-        <label>Date & Time</label>
-        <input name="date_time" type="datetime-local" required>
-      </div>
+<div class="field">
+  <label>Pickup Date</label>
+  <input name="pickup_date" id="pickup_date" type="date" required>
+</div>
 
-      <div class="field">
-        <label>Trip Type</label>
-        <select name="trip_type" required>
-          <option>One-way</option>
-          <option>Round trip</option>
-        </select>
-      </div>
+<div class="field">
+  <label>Pickup Time</label>
+  <select name="pickup_time" id="pickup_time" required></select>
+</div>
+
+<!-- Return fields (only for round trip) -->
+<div id="return_fields" style="display:none;">
+  <div class="field">
+    <label>Return Date</label>
+    <input name="return_date" id="return_date" type="date">
+  </div>
+
+  <div class="field">
+    <label>Return Time</label>
+    <select name="return_time" id="return_time"></select>
+  </div>
+</div>
+
+
+<div class="field">
+  <label>Trip Type</label>
+  <select name="trip_type" id="trip_type" required>
+    <option value="oneway">One-way</option>
+    <option value="roundtrip">Round trip</option>
+  </select>
+</div>
+
 
       <div class="field">
         <label>Pickup location</label>
@@ -99,4 +119,94 @@
 <div class="whatsapp-float"><a data-wa href="#">WhatsApp • +420 775 091 730</a></div>
 <footer class="footer"><div class="container"><div class="small" data-i18n="footerNote"></div></div></footer>
 <script src="assets/data.js"></script><script src="assets/app.js"></script>
+
+  <script>
+  // --- Helpers ---
+  function pad2(n){ return String(n).padStart(2,'0'); }
+
+  // Create time options every 15 minutes (00:00 to 23:45)
+  function fillTimeSelect(selectEl){
+    selectEl.innerHTML = "";
+    for(let h=0; h<24; h++){
+      for(let m=0; m<60; m+=15){
+        const t = `${pad2(h)}:${pad2(m)}`;
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        selectEl.appendChild(opt);
+      }
+    }
+  }
+
+  // Set min date = today
+  function setMinToday(inputEl){
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = pad2(now.getMonth()+1);
+    const dd = pad2(now.getDate());
+    inputEl.min = `${yyyy}-${mm}-${dd}`;
+  }
+
+  // Toggle return fields visibility + required/disabled
+  function updateReturnFields(){
+    const tripType = document.getElementById("trip_type").value;
+    const wrap = document.getElementById("return_fields");
+    const rDate = document.getElementById("return_date");
+    const rTime = document.getElementById("return_time");
+
+    const isRound = tripType === "roundtrip";
+    wrap.style.display = isRound ? "block" : "none";
+
+    // Required only when visible
+    rDate.required = isRound;
+    rTime.required = isRound;
+
+    // Disable when hidden so it won't be submitted
+    rDate.disabled = !isRound;
+    rTime.disabled = !isRound;
+  }
+
+  // Ensure return date cannot be before pickup date
+  function syncReturnMin(){
+    const pDate = document.getElementById("pickup_date").value;
+    const rDate = document.getElementById("return_date");
+    if(pDate){
+      rDate.min = pDate;
+      // if return date is earlier, clear it
+      if(rDate.value && rDate.value < pDate) rDate.value = "";
+    }
+  }
+
+  // --- Init on page load ---
+  document.addEventListener("DOMContentLoaded", () => {
+    const tripType = document.getElementById("trip_type");
+    const pickupDate = document.getElementById("pickup_date");
+    const returnDate = document.getElementById("return_date");
+
+    const pickupTime = document.getElementById("pickup_time");
+    const returnTime = document.getElementById("return_time");
+
+    // Fill time dropdowns
+    fillTimeSelect(pickupTime);
+    fillTimeSelect(returnTime);
+
+    // Min dates
+    setMinToday(pickupDate);
+    setMinToday(returnDate);
+
+    // Events
+    tripType.addEventListener("change", updateReturnFields);
+    pickupDate.addEventListener("change", () => {
+      syncReturnMin();
+      // also ensure return date min stays correct after pickup changes
+      setMinToday(pickupDate);
+    });
+
+    // Initial state
+    updateReturnFields();
+    syncReturnMin();
+  });
+</script>
+
+  
 </body></html>
