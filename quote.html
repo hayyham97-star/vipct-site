@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Get a Quote | VIP Coach Transfers</title>
+  <title data-i18n="ctaQuote">Get a Quote</title>
 
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -47,96 +47,92 @@
 
       <!-- Trip type -->
       <div class="field">
-        <label>Trip Type</label>
+        <label data-i18n="qTripType">Trip Type</label>
         <select name="trip_type" id="trip_type" required>
-          <option value="oneway">One-way</option>
-          <option value="roundtrip">Round trip</option>
+          <option value="oneway" data-i18n="qOneWay">One-way</option>
+          <option value="roundtrip" data-i18n="qRoundTrip">Round trip</option>
         </select>
       </div>
 
       <!-- Pickup date/time -->
       <div class="field">
-        <label>Pickup Date</label>
+        <label data-i18n="qPickupDate">Pickup Date</label>
         <input name="pickup_date" id="pickup_date" type="date" required>
       </div>
 
       <div class="field">
-        <label>Pickup Time</label>
+        <label data-i18n="qPickupTime">Pickup Time</label>
         <select name="pickup_time" id="pickup_time" required></select>
       </div>
 
       <!-- Return fields (only for round trip) -->
       <div id="return_fields" style="display:none;">
         <div class="field">
-          <label>Return Date</label>
+          <label data-i18n="qReturnDate">Return Date</label>
           <input name="return_date" id="return_date" type="date" disabled>
         </div>
 
         <div class="field">
-          <label>Return Time</label>
+          <label data-i18n="qReturnTime">Return Time</label>
           <select name="return_time" id="return_time" disabled></select>
         </div>
       </div>
 
       <div class="field">
-        <label>Pickup location</label>
-        <input name="pickup" type="text" placeholder="Airport / hotel / address" required>
+        <label data-i18n="qPickupLocation">Pickup location</label>
+        <input name="pickup" type="text" id="pickup" data-i18n-placeholder="qPlaceholderPickup" placeholder="Airport / hotel / address" required>
       </div>
 
       <div class="field">
-        <label>Drop-off location</label>
-        <input name="dropoff" type="text" placeholder="City / address" required>
+        <label data-i18n="qDropoffLocation">Drop-off location</label>
+        <input name="dropoff" type="text" id="dropoff" data-i18n-placeholder="qPlaceholderDropoff" placeholder="City / address" required>
       </div>
 
       <div class="field">
-        <label>Passengers</label>
-        <input name="passengers" type="number" min="1" max="60" required>
+        <label data-i18n="qPassengers">Passengers</label>
+        <input name="passengers" id="passengers" type="number" min="1" max="60" required>
       </div>
 
       <div class="field">
-        <label>Luggage</label>
-        <input name="luggage" type="text" placeholder="e.g. 4 suitcases + 2 backpacks">
+        <label data-i18n="qLuggage">Luggage</label>
+        <input name="luggage" id="luggage" type="text" data-i18n-placeholder="qPlaceholderLuggage" placeholder="e.g. 4 suitcases + 2 backpacks">
       </div>
 
       <div class="field">
-        <label>Vehicle preference</label>
-        <select name="vehicle" required>
-          <option value="Luxury Sedan">Luxury Sedan</option>
-          <option value="Mercedes V-Class">Mercedes V-Class</option>
-          <option value="Minibus / Coach">Minibus / Coach</option>
+        <label data-i18n="qVehicle">Vehicle preference</label>
+        <select name="vehicle" id="vehicle" required>
+          <option value="Luxury Sedan" data-i18n="qVehicleSedan">Luxury Sedan</option>
+          <option value="Mercedes V-Class" data-i18n="qVehicleVClass">Mercedes V-Class</option>
+          <option value="Minibus / Coach" data-i18n="qVehicleCoach">Minibus / Coach</option>
         </select>
       </div>
 
       <div class="field">
-        <label>Name</label>
-        <input name="name" type="text" required>
+        <label data-i18n="qName">Name</label>
+        <input name="name" id="name" type="text" required>
       </div>
 
       <div class="field">
-        <label>Phone</label>
-        <input
-          name="phone"
-          type="tel"
-          id="phone"
-          placeholder="+420 775 091 730"
+        <label data-i18n="qPhone">Phone</label>
+        <input name="phone" type="tel" id="phone" placeholder="+420 775 091 730" required>
       </div>
 
       <div class="field">
-        <label>Email</label>
-        <input name="email" type="email" required>
+        <label data-i18n="qEmail">Email</label>
+        <input name="email" id="email" type="email" required>
       </div>
 
       <div class="field">
-        <label>Notes</label>
-        <textarea name="notes" placeholder="Flight number, stops, child seats..."></textarea>
+        <label data-i18n="qNotes">Notes</label>
+        <textarea name="notes" id="notes" data-i18n-placeholder="qPlaceholderNotes" placeholder="Flight number, stops, child seats..."></textarea>
       </div>
 
       <div class="heroActions">
-        <button class="btn primary" type="submit">Send Request</button>
+        <button class="btn primary" type="submit" data-i18n="qSend">Send Request</button>
         <button type="button" class="btn" id="whatsappBtn" disabled>WhatsApp</button>
       </div>
 
-      <p class="note">
+      <p class="note" data-i18n="qFormSubmitNote">
         After first submit, FormSubmit will email you a confirmation link to activate. Open that email and click confirm.
       </p>
     </form>
@@ -199,7 +195,6 @@
 <script>
   const whatsappBtn = document.getElementById("whatsappBtn");
 
-  // Modal elements
   const overlay = document.getElementById("waModalOverlay");
   const waPreview = document.getElementById("waPreview");
   const waClose = document.getElementById("waClose");
@@ -207,10 +202,8 @@
   const waSend = document.getElementById("waSend");
   const waLoading = document.getElementById("waLoading");
 
-  // Helpers
   function pad2(n){ return String(n).padStart(2,'0'); }
 
-  // Create time options every 5 minutes (00:00 to 23:55)
   function fillTimeSelect(selectEl){
     selectEl.innerHTML = "";
     for(let h=0; h<24; h++){
@@ -224,7 +217,6 @@
     }
   }
 
-  // Set min date = today
   function setMinToday(inputEl){
     const now = new Date();
     const yyyy = now.getFullYear();
@@ -233,24 +225,17 @@
     inputEl.min = `${yyyy}-${mm}-${dd}`;
   }
 
-  // Toggle return fields visibility + required/disabled
   function updateReturnFields(){
     const tripType = document.getElementById("trip_type").value;
     const wrap = document.getElementById("return_fields");
     const rDate = document.getElementById("return_date");
     const rTime = document.getElementById("return_time");
-
     const isRound = tripType === "roundtrip";
     wrap.style.display = isRound ? "block" : "none";
-
-    rDate.required = isRound;
-    rTime.required = isRound;
-
-    rDate.disabled = !isRound;
-    rTime.disabled = !isRound;
+    rDate.required = isRound; rTime.required = isRound;
+    rDate.disabled = !isRound; rTime.disabled = !isRound;
   }
 
-  // Ensure return date cannot be before pickup date
   function syncReturnMin(){
     const pDate = document.getElementById("pickup_date").value;
     const rDate = document.getElementById("return_date");
@@ -260,14 +245,11 @@
     }
   }
 
-
-  // Enable/disable WhatsApp button based on required fields
   function checkRequiredFields() {
-    const pickup = document.querySelector('input[name="pickup"]').value.trim();
-    const dropoff = document.querySelector('input[name="dropoff"]').value.trim();
-    const passengers = document.querySelector('input[name="passengers"]').value.trim();
+    const pickup = document.getElementById("pickup").value.trim();
+    const dropoff = document.getElementById("dropoff").value.trim();
+    const passengers = document.getElementById("passengers").value.trim();
     const phone = document.getElementById("phone").value.trim();
-
     const pickupDate = document.getElementById("pickup_date").value;
     const pickupTime = document.getElementById("pickup_time").value;
     const tripType = document.getElementById("trip_type").value;
@@ -293,15 +275,12 @@
     waLoading.style.display = "none";
     waSend.disabled = false;
   }
-  function closeModal(){
-    overlay.style.display = "none";
-  }
+  function closeModal(){ overlay.style.display = "none"; }
 
   waClose.addEventListener("click", closeModal);
   waCancel.addEventListener("click", closeModal);
   overlay.addEventListener("click", (e)=>{ if(e.target === overlay) closeModal(); });
 
-  // Country detection (best effort)
   async function detectCountry(){
     try{
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
@@ -309,32 +288,20 @@
       const res = await fetch("https://ipapi.co/json/");
       if(!res.ok) throw new Error("geo failed");
       const json = await res.json();
-      return {
-        country: json.country_name || "",
-        countryCode: json.country || "",
-        city: json.city || "",
-        tz,
-        lang
-      };
+      return { country: json.country_name || "", countryCode: json.country || "", city: json.city || "", tz, lang };
     }catch(e){
-      return {
-        country: "",
-        countryCode: "",
-        city: "",
-        tz: (Intl.DateTimeFormat().resolvedOptions().timeZone || ""),
-        lang: (navigator.language || "")
-      };
+      return { country:"", countryCode:"", city:"", tz:(Intl.DateTimeFormat().resolvedOptions().timeZone||""), lang:(navigator.language||"") };
     }
   }
 
   function buildMessage(lang, geo){
     const date = document.getElementById("pickup_date").value;
     const time = document.getElementById("pickup_time").value;
-    const pickup = document.querySelector('input[name="pickup"]').value;
-    const dropoff = document.querySelector('input[name="dropoff"]').value;
-    const passengers = document.querySelector('input[name="passengers"]').value;
-    const luggage = document.querySelector('input[name="luggage"]').value || "-";
-    const vehicle = document.querySelector('select[name="vehicle"]').value;
+    const pickup = document.getElementById("pickup").value;
+    const dropoff = document.getElementById("dropoff").value;
+    const passengers = document.getElementById("passengers").value;
+    const luggage = document.getElementById("luggage").value || "-";
+    const vehicle = document.getElementById("vehicle").value;
     const phone = document.getElementById("phone").value;
     const tripType = document.getElementById("trip_type").value;
 
@@ -412,14 +379,10 @@
   let lastMessage = "";
 
   whatsappBtn.addEventListener("click", async () => {
-    // If Arabic selected -> ar message, otherwise English
     const lang = (document.documentElement.lang || "en").startsWith("ar") ? "ar" : "en";
-
     if(!cachedGeo) cachedGeo = await detectCountry();
-
     lastMessage = buildMessage(lang, cachedGeo);
     waPreview.textContent = lastMessage;
-
     openModal();
   });
 
@@ -427,35 +390,35 @@
     waSend.disabled = true;
     waLoading.style.display = "flex";
 
-    const encoded = encodeURIComponent(lastMessage);
-    // Save booking summary for thankyou page
-sessionStorage.setItem("vipct_booking", JSON.stringify({
-  trip_type,
-  tripLabel: (lang === "ar")
-    ? (tripType === "roundtrip" ? "ذهاب وعودة" : "ذهاب فقط")
-    : (tripType === "roundtrip" ? "Round Trip" : "One Way"),
-  pickup_date: date,
-  pickup_time: time,
-  return_date: (tripType === "roundtrip") ? (document.getElementById("return_date").value || "") : "",
-  return_time: (tripType === "roundtrip") ? (document.getElementById("return_time").value || "") : "",
-  pickup,
-  dropoff,
-  passengers,
-  luggage,
-  vehicle,
-  phone
-}));
+    // Save summary for thankyou page
+    const tripType = document.getElementById("trip_type").value;
+    const lang = (document.documentElement.lang || "en").startsWith("ar") ? "ar" : "en";
 
-sessionStorage.setItem("vipct_wa_message", message);
-    window.open(`https://wa.me/420775091730?text=${encoded}`, "_blank");
+    const booking = {
+      trip_type: tripType,
+      tripLabel: (lang === "ar")
+        ? (tripType === "roundtrip" ? "ذهاب وعودة" : "ذهاب فقط")
+        : (tripType === "roundtrip" ? "Round Trip" : "One Way"),
+      pickup_date: document.getElementById("pickup_date").value,
+      pickup_time: document.getElementById("pickup_time").value,
+      return_date: tripType === "roundtrip" ? (document.getElementById("return_date").value || "") : "",
+      return_time: tripType === "roundtrip" ? (document.getElementById("return_time").value || "") : "",
+      pickup: document.getElementById("pickup").value,
+      dropoff: document.getElementById("dropoff").value,
+      passengers: document.getElementById("passengers").value,
+      luggage: document.getElementById("luggage").value || "-",
+      vehicle: document.getElementById("vehicle").value,
+      phone: document.getElementById("phone").value
+    };
 
-    // redirect after WhatsApp opens
-    setTimeout(() => {
-      window.location.href = "thankyou.html";
-    }, 900);
+    sessionStorage.setItem("vipct_booking", JSON.stringify(booking));
+    sessionStorage.setItem("vipct_wa_message", lastMessage);
+
+    window.open(`https://wa.me/420775091730?text=${encodeURIComponent(lastMessage)}`, "_blank");
+
+    setTimeout(() => { window.location.href = "thankyou.html"; }, 900);
   });
 
-  // Init
   document.addEventListener("DOMContentLoaded", () => {
     const tripType = document.getElementById("trip_type");
     const pickupDate = document.getElementById("pickup_date");
@@ -469,21 +432,12 @@ sessionStorage.setItem("vipct_wa_message", message);
     setMinToday(pickupDate);
     setMinToday(returnDate);
 
-    // Flatpickr calendars
     flatpickr("#pickup_date", { minDate: "today", dateFormat: "Y-m-d" });
     flatpickr("#return_date", { minDate: "today", dateFormat: "Y-m-d" });
 
-    tripType.addEventListener("change", () => {
-      updateReturnFields();
-      checkRequiredFields();
-    });
+    tripType.addEventListener("change", () => { updateReturnFields(); checkRequiredFields(); });
+    pickupDate.addEventListener("change", () => { syncReturnMin(); checkRequiredFields(); });
 
-    pickupDate.addEventListener("change", () => {
-      syncReturnMin();
-      checkRequiredFields();
-    });
-
-    // If user changes return fields, re-check
     returnDate.addEventListener("change", checkRequiredFields);
     returnTime.addEventListener("change", checkRequiredFields);
 
