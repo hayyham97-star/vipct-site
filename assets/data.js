@@ -79,6 +79,9 @@ window.I18N = {
 
     fleetBtnQuote: "Get a Quote",
     fleetBtnWa: "WhatsApp"
+
+    servicesTitle: "Services",
+
   },
 
   // =====================================================
@@ -154,6 +157,9 @@ window.I18N = {
 
     fleetBtnQuote: "Poptávka",
     fleetBtnWa: "WhatsApp"
+
+    servicesTitle: "Služby",
+
   },
 
   // =====================================================
@@ -177,7 +183,7 @@ window.I18N = {
     ctaQuote: "طلب عرض سعر",
     ctaWa: "الحجز عبر واتساب",
 
-    company: "VIP Coach Transfers s.r.o.",
+    company: "VIP Coach Transfers s.r.o",
     companyIdLabel: "رقم الشركة",
     companyIdValue: "23693592",
     vatLabel: "الرقم الضريبي",
@@ -229,6 +235,9 @@ window.I18N = {
 
     fleetBtnQuote: "طلب عرض سعر",
     fleetBtnWa: "واتساب"
+
+    servicesTitle: "الخدمات",
+
   }
 
 };
