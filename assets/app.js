@@ -1,12 +1,16 @@
-// =============================
-// VIP Coach Transfers - app.js
-// =============================
+// ===============================
+// VIP Coach Transfers - Premium App.js
+// ===============================
 
 (function(){
 
   const DEFAULT_LANG = "en";
+  const WA_NUMBER = "420775091730";
 
-  // --- Get saved language ---
+  // -------------------------
+  // Language System
+  // -------------------------
+
   function getSavedLang(){
     return localStorage.getItem("vipct_lang") || DEFAULT_LANG;
   }
@@ -15,24 +19,18 @@
     localStorage.setItem("vipct_lang", lang);
   }
 
-  // --- Apply language ---
   function applyLanguage(lang){
     if(!window.I18N || !window.I18N[lang]) return;
 
     const dict = window.I18N[lang];
 
-    // Replace text for elements with data-i18n
     document.querySelectorAll("[data-i18n]").forEach(el=>{
       const key = el.getAttribute("data-i18n");
-      if(dict[key]){
-        el.textContent = dict[key];
-      }
+      if(dict[key]) el.textContent = dict[key];
     });
 
-    // Update document language
     document.documentElement.lang = lang;
 
-    // RTL support for Arabic
     if(lang === "ar"){
       document.documentElement.dir = "rtl";
       document.body.classList.add("rtl");
@@ -44,7 +42,6 @@
     saveLang(lang);
   }
 
-  // --- Language buttons ---
   function initLanguageSwitcher(){
     document.querySelectorAll("[data-lang]").forEach(btn=>{
       btn.addEventListener("click", ()=>{
@@ -54,7 +51,110 @@
     });
   }
 
-  // --- Highlight active navigation ---
+  // -------------------------
+  // WhatsApp Auto Link
+  // -------------------------
+
+  function initWhatsAppLinks(){
+    document.querySelectorAll("[data-wa]").forEach(el=>{
+      el.setAttribute("href", `https://wa.me/${WA_NUMBER}`);
+      el.setAttribute("target", "_blank");
+    });
+  }
+
+  // -------------------------
+  // Sticky Header Effect
+  // -------------------------
+
+  function initStickyHeader(){
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", ()=>{
+      if(window.scrollY > 50){
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    });
+  }
+
+  // -------------------------
+  // Smooth Page Transitions
+  // -------------------------
+
+  function initPageTransitions(){
+
+    document.body.classList.add("fade-in");
+
+    document.querySelectorAll("a").forEach(link=>{
+      if(link.hostname === window.location.hostname && !link.hasAttribute("target")){
+        link.addEventListener("click", function(e){
+          const href = this.getAttribute("href");
+
+          if(href && !href.startsWith("#")){
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+
+            setTimeout(()=>{
+              window.location.href = href;
+            }, 300);
+          }
+        });
+      }
+    });
+  }
+
+  // -------------------------
+  // Scroll Animations
+  // -------------------------
+
+  function initScrollAnimations(){
+
+    const elements = document.querySelectorAll(".card, .sectionTitle, .heroCard");
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("animate");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el=>{
+      el.classList.add("hidden");
+      observer.observe(el);
+    });
+  }
+
+  // -------------------------
+  // Loading Screen
+  // -------------------------
+
+  function initLoadingScreen(){
+
+    const loader = document.createElement("div");
+    loader.id = "pageLoader";
+    loader.innerHTML = `
+      <div class="loader-content">
+        <div class="loader-logo">VIP</div>
+        <div class="loader-spinner"></div>
+      </div>
+    `;
+
+    document.body.appendChild(loader);
+
+    window.addEventListener("load", ()=>{
+      loader.classList.add("hide");
+      setTimeout(()=>{
+        loader.remove();
+      }, 600);
+    });
+  }
+
+  // -------------------------
+  // Active Nav Highlight
+  // -------------------------
+
   function highlightActiveNav(){
     const currentPage = window.location.pathname.split("/").pop();
     document.querySelectorAll("[data-page]").forEach(link=>{
@@ -64,23 +164,21 @@
     });
   }
 
-  // --- WhatsApp Auto-Link ---
-  function initWhatsAppLinks(){
-    const number = "420775091730";
-    document.querySelectorAll("[data-wa]").forEach(el=>{
-      el.setAttribute("href", `https://wa.me/${number}`);
-      el.setAttribute("target", "_blank");
-    });
-  }
+  // -------------------------
+  // Initialize Everything
+  // -------------------------
 
-  // --- Initialize ---
   document.addEventListener("DOMContentLoaded", ()=>{
-    initLanguageSwitcher();
-    highlightActiveNav();
-    initWhatsAppLinks();
 
-    const savedLang = getSavedLang();
-    applyLanguage(savedLang);
+    initLoadingScreen();
+    initLanguageSwitcher();
+    initWhatsAppLinks();
+    initStickyHeader();
+    initPageTransitions();
+    initScrollAnimations();
+    highlightActiveNav();
+
+    applyLanguage(getSavedLang());
   });
 
 })();
