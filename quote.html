@@ -428,6 +428,25 @@
     waLoading.style.display = "flex";
 
     const encoded = encodeURIComponent(lastMessage);
+    // Save booking summary for thankyou page
+sessionStorage.setItem("vipct_booking", JSON.stringify({
+  trip_type,
+  tripLabel: (lang === "ar")
+    ? (tripType === "roundtrip" ? "ذهاب وعودة" : "ذهاب فقط")
+    : (tripType === "roundtrip" ? "Round Trip" : "One Way"),
+  pickup_date: date,
+  pickup_time: time,
+  return_date: (tripType === "roundtrip") ? (document.getElementById("return_date").value || "") : "",
+  return_time: (tripType === "roundtrip") ? (document.getElementById("return_time").value || "") : "",
+  pickup,
+  dropoff,
+  passengers,
+  luggage,
+  vehicle,
+  phone
+}));
+
+sessionStorage.setItem("vipct_wa_message", message);
     window.open(`https://wa.me/420775091730?text=${encoded}`, "_blank");
 
     // redirect after WhatsApp opens
