@@ -91,7 +91,7 @@ window.I18N = {
     addr:"Moulikova 2240/5, 150 00 Praha, Czechia",
     phone:"730 091 775 420+",
     email:"info@vipct.org",
-    company:"VIP Coach Transfers s.r.o.",
+    company:"VIP Coach Transfers s.r.o",
     companyIdLabel: "رقم الشركة",
     companyIdValue: "23693592",
     vatLabel: "الرقم الضريبي",
