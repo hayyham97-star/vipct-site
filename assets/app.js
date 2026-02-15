@@ -1,73 +1,86 @@
+// =============================
+// VIP Coach Transfers - app.js
+// =============================
+
 (function(){
-  const LANG_KEY = "vipct_lang";
+
   const DEFAULT_LANG = "en";
-  const supported = ["en","cz","ar"];
 
-  function getLang(){
-    const url = new URL(window.location.href);
-    const qp = url.searchParams.get("lang");
-    const saved = localStorage.getItem(LANG_KEY);
-    const lang = (qp && supported.includes(qp)) ? qp : (saved && supported.includes(saved) ? saved : DEFAULT_LANG);
-    return lang;
+  // --- Get saved language ---
+  function getSavedLang(){
+    return localStorage.getItem("vipct_lang") || DEFAULT_LANG;
   }
 
-  function setLang(lang){
-    localStorage.setItem(LANG_KEY, lang);
-    const url = new URL(window.location.href);
-    url.searchParams.set("lang", lang);
-    window.location.href = url.toString();
+  function saveLang(lang){
+    localStorage.setItem("vipct_lang", lang);
   }
 
-  function t(lang){ return window.I18N[lang] || window.I18N[DEFAULT_LANG]; }
+  // --- Apply language ---
+  function applyLanguage(lang){
+    if(!window.I18N || !window.I18N[lang]) return;
 
-  function applyText(){
-    const lang = getLang();
-    const dict = t(lang);
+    const dict = window.I18N[lang];
 
-    document.documentElement.lang = lang === "cz" ? "cs" : lang;
-    document.body.classList.toggle("rtl", lang === "ar");
-
-    document.querySelectorAll("[data-lang]").forEach(btn=>{
-      btn.classList.toggle("active", btn.dataset.lang === lang);
-      btn.addEventListener("click", ()=> setLang(btn.dataset.lang));
+    // Replace text for elements with data-i18n
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key = el.getAttribute("data-i18n");
+      if(dict[key]){
+        el.textContent = dict[key];
+      }
     });
 
-    const map = dict.nav;
-    for (const k of Object.keys(map)){
-      const el = document.querySelector(`[data-nav='${k}']`);
-      if(el) el.textContent = map[k];
+    // Update document language
+    document.documentElement.lang = lang;
+
+    // RTL support for Arabic
+    if(lang === "ar"){
+      document.documentElement.dir = "rtl";
+      document.body.classList.add("rtl");
+    } else {
+      document.documentElement.dir = "ltr";
+      document.body.classList.remove("rtl");
     }
 
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key = el.dataset.i18n;
-      const value = key.split(".").reduce((acc,part)=> acc && acc[part], dict);
-      if (typeof value === "string") el.textContent = value;
-    });
+    saveLang(lang);
+  }
 
-    document.querySelectorAll("[data-wa]").forEach(a=>{
-      a.setAttribute("href","https://wa.me/420775091730");
+  // --- Language buttons ---
+  function initLanguageSwitcher(){
+    document.querySelectorAll("[data-lang]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const lang = btn.getAttribute("data-lang");
+        applyLanguage(lang);
+      });
     });
   }
 
-  function setActiveNav(){
-    const path = window.location.pathname.split("/").pop() || "index.html";
-    const key = ({
-      "index.html":"home",
-      "services.html":"services",
-      "fleet.html":"fleet",
-      "programs.html":"programs",
-      "quote.html":"quote",
-      "contact.html":"contact",
-      "":"home"
-    })[path] || "home";
-
-    document.querySelectorAll(".links a").forEach(a=>a.classList.remove("active"));
-    const active = document.querySelector(`.links a[data-page='${key}']`);
-    if(active) active.classList.add("active");
+  // --- Highlight active navigation ---
+  function highlightActiveNav(){
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll("[data-page]").forEach(link=>{
+      if(link.getAttribute("href") === currentPage){
+        link.classList.add("active");
+      }
+    });
   }
 
-  window.addEventListener("DOMContentLoaded", ()=>{
-    applyText();
-    setActiveNav();
+  // --- WhatsApp Auto-Link ---
+  function initWhatsAppLinks(){
+    const number = "420775091730";
+    document.querySelectorAll("[data-wa]").forEach(el=>{
+      el.setAttribute("href", `https://wa.me/${number}`);
+      el.setAttribute("target", "_blank");
+    });
+  }
+
+  // --- Initialize ---
+  document.addEventListener("DOMContentLoaded", ()=>{
+    initLanguageSwitcher();
+    highlightActiveNav();
+    initWhatsAppLinks();
+
+    const savedLang = getSavedLang();
+    applyLanguage(savedLang);
   });
+
 })();
