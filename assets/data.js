@@ -89,7 +89,7 @@ window.I18N = {
     emailLabel:"البريد",
     addrLabel:"العنوان",
     addr:"Moulikova 2240/5, 150 00 Praha, Czechia",
-    phone:"775 091 730 +420",
+    phone:"730 091 775 420+",
     email:"info@vipct.org",
     company:"VIP Coach Transfers s.r.o.",
     companyIdLabel: "رقم الشركة",
