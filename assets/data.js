@@ -22,10 +22,10 @@ window.I18N = {
 
     footerNote: "VIP Coach Transfers s.r.o. • Prague • 24/7 Luxury Transfers",
 
-    // ================= HOME =================
     ctaQuote: "Get a Quote",
+    ctaWa: "Book on WhatsApp",
 
-    // ================= CONTACT (ADDED) =================
+    // ================= CONTACT =================
     company: "VIP Coach Transfers s.r.o.",
     companyIdLabel: "Company ID",
     companyIdValue: "23693592",
@@ -33,69 +33,52 @@ window.I18N = {
     vatValue: "CZ23693592",
     addrLabel: "Address",
     addr: "Moulikova 2240/5, 150 00 Praha, Czechia",
-
-    // ================= QUOTE PAGE =================
-    qTripType: "Trip Type",
-    qOneWay: "One-way",
-    qRoundTrip: "Round trip",
-    qPickupDate: "Pickup Date",
-    qPickupTime: "Pickup Time",
-    qReturnDate: "Return Date",
-    qReturnTime: "Return Time",
-    qPickupLocation: "Pickup location",
-    qDropoffLocation: "Drop-off location",
-    qPassengers: "Passengers",
-    qLuggage: "Luggage",
-    qVehicle: "Vehicle preference",
-    qVehicleSedan: "Sedan",
-    qVehicleVClass: "Mercedes V-Class / Vito",
-    qVehicleCoach: "Minibus 8-20",
-    qVehicleCoach: "Coach +21",
-    qName: "Name",
-    qPhone: "Phone",
-    qEmail: "Email",
-    qNotes: "Notes",
-    qSend: "Send Request",
-    qFormSubmitNote: "After first submit, FormSubmit will email you a confirmation link to activate. Open that email and click confirm.",
-
-    qPlaceholderPickup: "Airport / hotel / address",
-    qPlaceholderDropoff: "City / address",
-    qPlaceholderLuggage: "e.g. 4 suitcases + 2 backpacks",
-    qPlaceholderNotes: "Flight number, stops, child seats...",
-
-    // ================= WHATSAPP MODAL =================
-    waModalTitle: "VIP Coach Transfers",
-    waModalSubtitle: "Confirm WhatsApp booking",
-    waPreviewLabel: "Message preview:",
-    waCancel: "Cancel",
-    waSend: "Send via WhatsApp",
-    waRedirectNote: "You will be redirected to the confirmation page after WhatsApp opens.",
-    waOpening: "Opening WhatsApp…",
-
-    // ================= THANK YOU PAGE =================
-    tyTitle: "Thank You | VIP Coach Transfers",
-    tyHeadline: "Thank you!",
-    tySubtext: "Your request is ready. If WhatsApp didn’t open, use the button below.",
-    tySummaryTitle: "Booking summary",
-    tyTripType: "Trip type",
-    tyPickupDate: "Pickup date",
-    tyPickupTime: "Pickup time",
-    tyPickup: "Pickup",
-    tyDropoff: "Drop-off",
-    tyPassengers: "Passengers",
-    tyLuggage: "Luggage",
-    tyVehicle: "Vehicle",
-    tyPhone: "Phone",
-    tyReturn: "Return",
-    tySummaryNote: "This summary is shown from your last booking attempt.",
-    tyHomeBtn: "Back to Home",
-    tyNewQuoteBtn: "New Quote",
-    tyWaBtn: "Open WhatsApp",
-
     phoneLabel: "Phone / WhatsApp",
     emailLabel: "Email",
     phone: "+420 775 091 730",
-    email: "info@vipct.org"
+    email: "info@vipct.org",
+
+    // ================= FLEET =================
+    fleetTitle: "Explore Our Premium Fleet",
+    fleetSubtitle: "Luxury transfers for business, families, VIP clients and large groups.",
+
+    fleetFilterAll: "All",
+    fleetFilterSedan: "Sedan (1–3)",
+    fleetFilterVan: "Van (4–7)",
+    fleetFilterMinibus: "Minibus (8–20)",
+    fleetFilterCoach: "Coach (21+)",
+
+    fleetSedanTitle: "Sedan",
+    fleetSedanDesc: "Perfect for executive airport transfers and private city rides.",
+    fleetVclassTitle: "Mercedes V-Class",
+    fleetVclassDesc: "Spacious and elegant transport for families and VIP guests.",
+    fleetMinibusTitle: "Luxury Minibus",
+    fleetMinibusDesc: "Ideal for group transfers, tours and special occasions.",
+    fleetCoachTitle: "Executive Coaches",
+    fleetCoachDesc: "Comfortable long-distance transport for events and conferences.",
+
+    fleetTagExec: "Executive",
+    fleetTagVip: "VIP Comfort",
+    fleetTagGroups: "Groups",
+    fleetTagEvents: "Events",
+
+    fleetSeats13: "Seats: 1–3",
+    fleetSeats47: "Seats: 4–7",
+    fleetSeats820: "Seats: 8–20",
+    fleetSeats2160: "Seats: 21–60+",
+
+    fleetLuggage23: "Luggage: 2–3",
+    fleetLuggage57: "Luggage: 5–7",
+    fleetLuggage1020: "Bags: 10–20",
+
+    fleetAmenWaterWifi: "Wi-Fi • Water",
+    fleetAmenLeather: "Leather • Climate",
+    fleetAmenAc: "A/C • Extra Space",
+    fleetAmenMic: "A/C • Microphone",
+    fleetAmenLarge: "Large Luggage",
+
+    fleetBtnQuote: "Get a Quote",
+    fleetBtnWa: "WhatsApp"
   },
 
   // =====================================================
@@ -117,8 +100,8 @@ window.I18N = {
     footerNote: "VIP Coach Transfers s.r.o. • Praha • 24/7 Luxusní přeprava",
 
     ctaQuote: "Poptávka",
+    ctaWa: "Rezervovat přes WhatsApp",
 
-    // ================= CONTACT (ADDED) =================
     company: "VIP Coach Transfers s.r.o.",
     companyIdLabel: "IČO",
     companyIdValue: "23693592",
@@ -126,65 +109,51 @@ window.I18N = {
     vatValue: "CZ23693592",
     addrLabel: "Adresa",
     addr: "Moulikova 2240/5, 150 00 Praha, Česko",
-
-    qTripType: "Typ cesty",
-    qOneWay: "Jednosměrná",
-    qRoundTrip: "Zpáteční",
-    qPickupDate: "Datum vyzvednutí",
-    qPickupTime: "Čas vyzvednutí",
-    qReturnDate: "Datum návratu",
-    qReturnTime: "Čas návratu",
-    qPickupLocation: "Místo vyzvednutí",
-    qDropoffLocation: "Cíl",
-    qPassengers: "Počet osob",
-    qLuggage: "Zavazadla",
-    qVehicle: "Preferované vozidlo",
-    qVehicleSedan: "Luxusní sedan",
-    qVehicleVClass: "Mercedes V-Class",
-    qVehicleCoach: "Minibus / Autobus",
-    qName: "Jméno",
-    qPhone: "Telefon",
-    qEmail: "Email",
-    qNotes: "Poznámky",
-    qSend: "Odeslat poptávku",
-    qFormSubmitNote: "Po prvním odeslání vám FormSubmit pošle potvrzovací email. Otevřete jej a potvrďte.",
-
-    qPlaceholderPickup: "Letiště / hotel / adresa",
-    qPlaceholderDropoff: "Město / adresa",
-    qPlaceholderLuggage: "např. 4 kufry + 2 batohy",
-    qPlaceholderNotes: "Číslo letu, zastávky, dětské sedačky...",
-
-    waModalTitle: "VIP Coach Transfers",
-    waModalSubtitle: "Potvrzení rezervace přes WhatsApp",
-    waPreviewLabel: "Náhled zprávy:",
-    waCancel: "Zrušit",
-    waSend: "Odeslat přes WhatsApp",
-    waRedirectNote: "Po otevření WhatsApp budete přesměrováni na potvrzovací stránku.",
-    waOpening: "Otevírám WhatsApp…",
-
-    tyTitle: "Děkujeme | VIP Coach Transfers",
-    tyHeadline: "Děkujeme!",
-    tySubtext: "Vaše poptávka je připravena. Pokud se WhatsApp neotevřel, použijte tlačítko níže.",
-    tySummaryTitle: "Shrnutí objednávky",
-    tyTripType: "Typ cesty",
-    tyPickupDate: "Datum vyzvednutí",
-    tyPickupTime: "Čas vyzvednutí",
-    tyPickup: "Odkud",
-    tyDropoff: "Kam",
-    tyPassengers: "Počet osob",
-    tyLuggage: "Zavazadla",
-    tyVehicle: "Vozidlo",
-    tyPhone: "Telefon",
-    tyReturn: "Návrat",
-    tySummaryNote: "Toto shrnutí je zobrazené z poslední poptávky.",
-    tyHomeBtn: "Zpět na úvod",
-    tyNewQuoteBtn: "Nová poptávka",
-    tyWaBtn: "Otevřít WhatsApp",
-
     phoneLabel: "Telefon / WhatsApp",
     emailLabel: "Email",
     phone: "+420 775 091 730",
-    email: "info@vipct.org"
+    email: "info@vipct.org",
+
+    fleetTitle: "Náš prémiový vozový park",
+    fleetSubtitle: "Luxusní přeprava pro firmy, rodiny i velké skupiny.",
+
+    fleetFilterAll: "Vše",
+    fleetFilterSedan: "Sedan (1–3)",
+    fleetFilterVan: "Van (4–7)",
+    fleetFilterMinibus: "Minibus (8–20)",
+    fleetFilterCoach: "Autobus (21+)",
+
+    fleetSedanTitle: "Sedan",
+    fleetSedanDesc: "Ideální pro letištní transfery a obchodní schůzky.",
+    fleetVclassTitle: "Mercedes V-Class",
+    fleetVclassDesc: "Prostorné a elegantní vozidlo pro rodiny a VIP hosty.",
+    fleetMinibusTitle: "Luxusní minibus",
+    fleetMinibusDesc: "Perfektní pro skupinové transfery a zájezdy.",
+    fleetCoachTitle: "Luxusní autobusy",
+    fleetCoachDesc: "Komfortní doprava pro konference a velké akce.",
+
+    fleetTagExec: "Executive",
+    fleetTagVip: "VIP Komfort",
+    fleetTagGroups: "Skupiny",
+    fleetTagEvents: "Akce",
+
+    fleetSeats13: "Místa: 1–3",
+    fleetSeats47: "Místa: 4–7",
+    fleetSeats820: "Místa: 8–20",
+    fleetSeats2160: "Místa: 21–60+",
+
+    fleetLuggage23: "Zavazadla: 2–3",
+    fleetLuggage57: "Zavazadla: 5–7",
+    fleetLuggage1020: "Zavazadla: 10–20",
+
+    fleetAmenWaterWifi: "Wi-Fi • Voda",
+    fleetAmenLeather: "Kůže • Klima",
+    fleetAmenAc: "Klimatizace • Prostor",
+    fleetAmenMic: "Klimatizace • Mikrofon",
+    fleetAmenLarge: "Velký prostor",
+
+    fleetBtnQuote: "Poptávka",
+    fleetBtnWa: "WhatsApp"
   },
 
   // =====================================================
@@ -206,74 +175,60 @@ window.I18N = {
     footerNote: "VIP Coach Transfers s.r.o. • براغ • نقل فاخر 24/7",
 
     ctaQuote: "طلب عرض سعر",
+    ctaWa: "الحجز عبر واتساب",
 
-    // ================= CONTACT (ADDED) =================
-    company: "VIP Coach Transfers s.r.o",
+    company: "VIP Coach Transfers s.r.o.",
     companyIdLabel: "رقم الشركة",
     companyIdValue: "23693592",
     vatLabel: "الرقم الضريبي",
     vatValue: "CZ23693592",
     addrLabel: "العنوان",
     addr: "Moulikova 2240/5, 150 00 Praha, Czechia",
-
-    qTripType: "نوع الرحلة",
-    qOneWay: "ذهاب فقط",
-    qRoundTrip: "ذهاب وعودة",
-    qPickupDate: "تاريخ الانطلاق",
-    qPickupTime: "وقت الانطلاق",
-    qReturnDate: "تاريخ العودة",
-    qReturnTime: "وقت العودة",
-    qPickupLocation: "موقع الانطلاق",
-    qDropoffLocation: "الوجهة",
-    qPassengers: "عدد الركاب",
-    qLuggage: "الأمتعة",
-    qVehicle: "نوع السيارة",
-    qVehicleSedan: "سيدان فاخرة",
-    qVehicleVClass: "مرسيدس V-Class",
-    qVehicleCoach: "ميني باص / حافلة",
-    qName: "الاسم",
-    qPhone: "الهاتف",
-    qEmail: "البريد الإلكتروني",
-    qNotes: "ملاحظات",
-    qSend: "إرسال الطلب",
-    qFormSubmitNote: "بعد الإرسال الأول، سيصلك بريد لتأكيد الطلب. افتح البريد وقم بالتأكيد.",
-
-    qPlaceholderPickup: "المطار / الفندق / العنوان",
-    qPlaceholderDropoff: "المدينة / العنوان",
-    qPlaceholderLuggage: "مثال: 4 حقائب + 2 شنطة",
-    qPlaceholderNotes: "رقم الرحلة، توقفات، كرسي أطفال...",
-
-    waModalTitle: "VIP Coach Transfers",
-    waModalSubtitle: "تأكيد الحجز عبر واتساب",
-    waPreviewLabel: "معاينة الرسالة:",
-    waCancel: "إلغاء",
-    waSend: "إرسال عبر واتساب",
-    waRedirectNote: "سيتم تحويلك إلى صفحة التأكيد بعد فتح واتساب.",
-    waOpening: "جاري فتح واتساب…",
-
-    tyTitle: "شكراً | VIP Coach Transfers",
-    tyHeadline: "شكراً لك!",
-    tySubtext: "طلبك جاهز. إذا لم يفتح واتساب، استخدم الزر أدناه.",
-    tySummaryTitle: "ملخص الحجز",
-    tyTripType: "نوع الرحلة",
-    tyPickupDate: "تاريخ الانطلاق",
-    tyPickupTime: "وقت الانطلاق",
-    tyPickup: "نقطة الانطلاق",
-    tyDropoff: "الوجهة",
-    tyPassengers: "عدد الركاب",
-    tyLuggage: "الأمتعة",
-    tyVehicle: "نوع السيارة",
-    tyPhone: "الهاتف",
-    tyReturn: "العودة",
-    tySummaryNote: "يتم عرض هذا الملخص من آخر محاولة حجز.",
-    tyHomeBtn: "العودة للرئيسية",
-    tyNewQuoteBtn: "طلب جديد",
-    tyWaBtn: "فتح واتساب",
-
     phoneLabel: "الهاتف / واتساب",
     emailLabel: "البريد الإلكتروني",
     phone: "730 091 775 420+",
-    email: "info@vipct.org"
+    email: "info@vipct.org",
+
+    fleetTitle: "استكشف أسطولنا الفاخر",
+    fleetSubtitle: "نقل فاخر لرجال الأعمال والعائلات والمجموعات الكبيرة.",
+
+    fleetFilterAll: "الكل",
+    fleetFilterSedan: "سيدان (1–3)",
+    fleetFilterVan: "فان (4–7)",
+    fleetFilterMinibus: "ميني باص (8–20)",
+    fleetFilterCoach: "حافلة (21+)",
+
+    fleetSedanTitle: "سيدان فاخرة",
+    fleetSedanDesc: "مثالية لنقل المطار والاجتماعات الخاصة.",
+    fleetVclassTitle: "مرسيدس V-Class",
+    fleetVclassDesc: "مركبة واسعة وأنيقة للعائلات وكبار الشخصيات.",
+    fleetMinibusTitle: "ميني باص فاخر",
+    fleetMinibusDesc: "مثالي للرحلات الجماعية والجولات السياحية.",
+    fleetCoachTitle: "حافلات فاخرة",
+    fleetCoachDesc: "نقل مريح للمؤتمرات والفعاليات الكبيرة.",
+
+    fleetTagExec: "تنفيذي",
+    fleetTagVip: "راحة VIP",
+    fleetTagGroups: "مجموعات",
+    fleetTagEvents: "فعاليات",
+
+    fleetSeats13: "المقاعد: 1–3",
+    fleetSeats47: "المقاعد: 4–7",
+    fleetSeats820: "المقاعد: 8–20",
+    fleetSeats2160: "المقاعد: 21–60+",
+
+    fleetLuggage23: "الأمتعة: 2–3",
+    fleetLuggage57: "الأمتعة: 5–7",
+    fleetLuggage1020: "الأمتعة: 10–20",
+
+    fleetAmenWaterWifi: "واي فاي • مياه",
+    fleetAmenLeather: "جلد • تكييف",
+    fleetAmenAc: "تكييف • مساحة",
+    fleetAmenMic: "تكييف • ميكروفون",
+    fleetAmenLarge: "مساحة كبيرة",
+
+    fleetBtnQuote: "طلب عرض سعر",
+    fleetBtnWa: "واتساب"
   }
 
 };
