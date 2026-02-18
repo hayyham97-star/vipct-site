@@ -3,87 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VIP Coach Transfers</title>
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<meta name="description" content="VIP Coach Transfers Prague - Luxury private transfers, chauffeur services, airport transfers and European tours.">
-<meta name="keywords" content="Prague transfer, VIP chauffeur Prague, Airport transfer Prague, Luxury transport Europe">
+
+<title>VIP Coach Transfers | Global Executive Transport</title>
+
+<meta name="description" content="VIP Coach Transfers Prague – Global luxury private transport and executive chauffeur services across Europe.">
+<meta name="keywords" content="VIP transfer Prague, luxury chauffeur Europe, airport transfer Prague">
 <meta name="author" content="VIP Coach Transfers s.r.o.">
-<meta property="og:title" content="VIP Coach Transfers Prague">
-<meta property="og:description" content="Premium private transfers across Prague & Europe.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/hero.jpg">
 <meta name="theme-color" content="#000000">
+
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="assets/data.js"></script>
+<script defer src="assets/app.js"></script>
 </head>
-<body>
+
+<body class="fade">
 
 <header>
   <div class="container nav">
-    <h2>VIPCT</h2>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="fleet.html">Fleet</a>
-      <a href="programs.html">Programs</a>
-      <a href="quote.html">Get a Quote</a>
-      <a href="contact.html">Contact</a>
+    <div class="logo">VIPCT</div>
+
+    <nav class="links">
+      <a href="index.html" data-i18n="home"></a>
+      <a href="services.html" data-i18n="services"></a>
+      <a href="fleet.html" data-i18n="fleet"></a>
+      <a href="programs.html" data-i18n="programs"></a>
+      <a href="quote.html" data-i18n="quote"></a>
+      <a href="contact.html" data-i18n="contact"></a>
+    </nav>
+
+    <div class="lang">
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('cz')">CZ</button>
+      <button onclick="setLang('ar')">AR</button>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container hero-content">
-    <h1>Luxury Private Transfers Across Europe</h1>
-    <p>Premium chauffeur services in Prague & Europe. Comfort. Safety. Excellence.</p>
-    <a href="quote.html" class="btn">Request a Quote</a>
+  <video autoplay muted loop playsinline>
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <h1 data-i18n="heroTitle"></h1>
+    <p data-i18n="heroText"></p>
+    <a href="quote.html" class="btn gold" data-i18n="quote"></a>
   </div>
 </section>
 
-<section class="section container">
-<h2 style="text-align:center;margin-bottom:60px;">Our Premium Services</h2>
-
-<div class="grid grid-3">
-
-<div class="card">
-<img src="assets/picture1.jpg">
-<h3>Daily Tours</h3>
-<p>Discover Prague & Europe with private luxury tours.</p>
-</div>
-
-<div class="card">
-<img src="assets/picture2.jpg">
-<h3>European Transfers</h3>
-<p>Private transfers across all European cities.</p>
-</div>
-
-<div class="card">
-<img src="assets/picture3.jpg">
-<h3>Events & Programs</h3>
-<p>Corporate, weddings & private VIP events.</p>
-</div>
-
-</div>
+<section class="section stats">
+  <div class="container grid grid-3">
+    <div>
+      <div class="counter" data-target="15">0</div>
+      <p>Years Experience</p>
+    </div>
+    <div>
+      <div class="counter" data-target="5000">0</div>
+      <p>Happy Clients</p>
+    </div>
+    <div>
+      <div class="counter" data-target="120">0</div>
+      <p>Corporate Partners</p>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
-© 2026 VIP Coach Transfers s.r.o.
+  © 2026 VIP Coach Transfers s.r.o.
 </footer>
 
-<div class="grid grid-3">
-  <div>
-    <div class="counter" data-target="15">0</div>
-    <p>Years Experience</p>
-  </div>
-  <div>
-    <div class="counter" data-target="5000">0</div>
-    <p>Happy Clients</p>
-  </div>
-  <div>
-    <div class="counter" data-target="120">0</div>
-    <p>Business Partners</p>
-  </div>
-</div>
+<a href="https://wa.me/420775091730" class="whatsapp">WhatsApp</a>
 
-  
 </body>
 </html>
