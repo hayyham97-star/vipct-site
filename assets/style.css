@@ -1,0 +1,127 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root{
+--gold:#caa54c;
+--dark:#0c0c0c;
+--gray:#1a1a1a;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--dark);
+color:white;
+line-height:1.7;
+transition:.3s;
+}
+
+header{
+position:fixed;
+width:100%;
+background:rgba(0,0,0,.85);
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+header a{
+color:white;
+margin-left:25px;
+text-decoration:none;
+font-weight:500;
+}
+
+header a:hover{color:var(--gold)}
+
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:60px;
+background:rgba(0,0,0,.6);
+padding:30px 40px;
+}
+
+.section{
+padding:120px 10%;
+}
+
+.card{
+background:var(--gray);
+padding:40px;
+margin:30px 0;
+border:1px solid rgba(255,255,255,.05);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:var(--gold);
+}
+
+h1,h2,h3{
+font-family:'Playfair Display',serif;
+color:var(--gold);
+margin-bottom:20px;
+}
+
+.button{
+display:inline-block;
+padding:12px 28px;
+border:1px solid var(--gold);
+color:var(--gold);
+text-decoration:none;
+margin-top:20px;
+}
+
+.button:hover{
+background:var(--gold);
+color:black;
+}
+
+.counter{
+font-size:50px;
+color:var(--gold);
+margin:20px 0;
+}
+
+.whatsapp{
+position:fixed;
+bottom:30px;
+right:30px;
+background:var(--gold);
+color:black;
+padding:12px 22px;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+background:black;
+border:1px solid #333;
+color:white;
+}
+
+footer{
+background:black;
+text-align:center;
+padding:60px 0;
+border-top:1px solid #222;
+margin-top:60px;
+}
